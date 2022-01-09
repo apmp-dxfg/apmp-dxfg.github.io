@@ -14,7 +14,7 @@ topnav_dropdowns:
   folders:
     - title: External Links
       folderitems:
-        - title: EURAMET TC-im WG M4D
+        - title: EURAMET TC-IM WG M4D
           external_url: https://www.euramet.org/technical-committees/tc-im/metrology-for-digital-transformation/
         - title: SIM Metrology for Digital Transformation
           external_url: https://www.cenam.mx/m4dt-sim/
@@ -23,13 +23,13 @@ topnav_dropdowns:
 
     - title: About
       folderitems:
-        - title: About the APMP-DXFG
+        - title: The APMP-DXFG
           url: /about.html
         - title: Abbreviations
           url: /dxfg_abbreviations.html
-        - title: Terms of Reference
+        - title: APMP-DXFG Terms of Reference
           url: /dxfg_terms_of_reference.html
-        - title: APMP main website
+        - title: APMP website
           external_url: http://www.apmpweb.org/
 
 
