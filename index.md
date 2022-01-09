@@ -5,7 +5,7 @@ nav_button: false
 toc: false
 permalink: index.html
 mathjax: true
-last_updated: Jan 9, 2022
+last_updated: Jan 10, 2022
 layout: page
 ---
 <figure>
@@ -13,6 +13,7 @@ layout: page
   <figcaption>The Asia Pacific Metrology Programme has a special focus group looking at digitalisation in metrology.</figcaption>
 </figure>
 
-## This site is currently being constructed 
+
+{% include important.html content="This site is currently under construction" %}
 
 {% include links.html %}
