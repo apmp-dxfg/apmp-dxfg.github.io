@@ -1,0 +1,36 @@
+## Topnav single links
+## if you want to list an external url, use external_url instead of url. the theme will apply a different link base.
+topnav:
+- title: Topnav
+  items:
+    # - title: GitHub
+      # external_url: https://github.com/apmp-dxfg/apmp-dxfg
+    - title: News
+      url: /news
+
+#Topnav dropdowns
+topnav_dropdowns:
+- title: Topnav dropdowns
+  folders:
+    - title: External Links
+      folderitems:
+        - title: EURAMET TC-im WG M4D
+          external_url: https://www.euramet.org/technical-committees/tc-im/metrology-for-digital-transformation/
+        - title: SIM Metrology for Digital Transformation
+          external_url: https://www.cenam.mx/m4dt-sim/
+        - title: NCSLI Measurement Information Infrastructure
+          external_url: http://miiknowledge.wikidot.com/start
+
+    - title: About
+      folderitems:
+        - title: About the APMP-DXFG
+          url: /about.html
+        - title: Abbreviations
+          url: /dxfg_abbreviations.html
+        - title: Terms of Reference
+          url: /dxfg_terms_of_reference.html
+        - title: APMP main website
+          external_url: http://www.apmpweb.org/
+
+
+# Copyright 2021 Google LLC
