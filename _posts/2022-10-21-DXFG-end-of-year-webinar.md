@@ -34,7 +34,7 @@ After registering you will receive a confirmation email containing information a
     
 * Dr. YANG Ping, NIM (China), _"Digital Transformation Consideration and Progress at NIM"_
     
-* Mr. Ronald Tse, Ribose, _"Digitalization of standards through SMART: an introduction to the IEC/ISO SMART program"_
+* Mr. Ronald Tse, ISO SMART Steering Group, _"Digitalization of standards through SMART: an introduction to the IEC/ISO SMART program"_
     
 * Dr. Kazuaki Yamazawa, NMIJ (Japan), _"Activities related to DX in metrology at NMIJ"_
     
