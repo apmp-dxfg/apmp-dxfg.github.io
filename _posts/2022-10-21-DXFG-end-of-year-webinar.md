@@ -24,22 +24,36 @@ After registering you will receive a confirmation email containing information a
 
 ### This is a preliminary announcement. Further details will be posted here as they become available
 
-#### Speakers
+#### Presentations
 
 * Dr. Blair Hall, MSL (New Zealand), DXFG Chair, _"Welcoming remarks and introduction"_
     
+* Mr. Sundeep Bhandari, NPL (United Kingdom), _"Paths towards becoming a Digital NMI: The NPL journey"_
+
+   **Abstract** 
+   
+   NMI’s are at various stages of their evolution towards Digital Transformation. In this short talk, Sunny will share the NPL journey which started during 2020. Growing over time they looked at how to take the entire organisation, together, forwards step by step. In this talk you will hear about some highlights, challenges and considerations that have been experienced along the way and future directions.     
+   
 * Mr. Benjamin Long, NIST (USA), _"Considerations and Themes in Digitalization and the Role of Modelling for Metrology"_ 
     
 * Dr. Hugo Gasca Aragon, CENAM (Mexico), _Topic to be confirmed_ 
     
 * Dr. YANG Ping, NIM (China), _"Digital Transformation Consideration and Progress at NIM"_
     
-* Mr. Ronald Tse, ISO SMART Steering Group, Technical Solutions _"Digitalization of standards through SMART: an introduction to the IEC/ISO SMART program"_
+* Mr. Ronald Tse, ISO SMART Steering Group, Technical Solutions, _"Digitalization of standards through SMART: an introduction to the IEC/ISO SMART program"_
     
 * Dr. Kazuaki Yamazawa, NMIJ (Japan), _"Activities related to DX in metrology at NMIJ"_
-    
-* Mr. Sundeep Bhandari, NPL (United Kingdom), _"Paths towards becoming a Digital NMI: The NPL journey"_
-    
   
+#### Speaker details   
  
+   <table><tr>
+   <tr>
+   <td ><img src="supplied\BDH.jpg"></td>
+   <td style="vertical-align: middle"><b>Blair Hall</b> is a metrologist at the Measurement Standards Laboratory of New Zealand. He chairs the APMP Focus Group on Digitalisation in Metrology (DXFG) and is a member of the IMEKO technical committee 6 (Digitalisation) and the NCSLI technical committee 141 (Measurement Information Infrastructure). </td>  
+   </tr>   
+   <td><img src="supplied\SP.jpg"></td>
+   <td style="vertical-align: middle"><b>Sundeep Bhandari</b> is Strategy Manager – Digital Sector & Technologies - at the National Physical Laboratory in the United Kingdom.</td>   
+   </tr>
+   </table>
+
 {% include links.html %}
