@@ -32,7 +32,7 @@ After registering you will receive a confirmation email containing information a
 
    **Abstract** 
    
-   NMI’s are at various stages of their evolution towards Digital Transformation. In this short talk, Sunny will share the NPL journey which started during 2020. Growing over time they looked at how to take the entire organisation, together, forwards step by step. In this talk you will hear about some highlights, challenges and considerations that have been experienced along the way and future directions.     
+   NMIs are at various stages of their evolution towards Digital Transformation. In this short talk, Sunny will share the NPL journey which started during 2020. Growing over time they looked at how to take the entire organisation, together, forwards step by step. In this talk you will hear about some highlights, challenges and considerations that have been experienced along the way and future directions.     
    
 * Mr. Benjamin Long, NIST (USA), _"Considerations and Themes in Digitalization and the Role of Modelling for Metrology"_ 
     
@@ -46,13 +46,18 @@ After registering you will receive a confirmation email containing information a
   
 #### Speaker details   
  
-   <table><tr>
+   <table>
    <tr>
    <td ><img src="supplied\BDH.jpg"></td>
    <td style="vertical-align: middle"><b>Blair Hall</b> is a metrologist at the Measurement Standards Laboratory of New Zealand. He chairs the APMP Focus Group on Digitalisation in Metrology (DXFG) and is a member of the IMEKO technical committee 6 (Digitalisation) and the NCSLI technical committee 141 (Measurement Information Infrastructure). </td>  
-   </tr>   
+   </tr> 
+   <tr>   
    <td><img src="supplied\SP.jpg"></td>
    <td style="vertical-align: middle"><b>Sundeep Bhandari</b> is Strategy Manager – Digital Sector & Technologies - at the National Physical Laboratory in the United Kingdom.</td>   
+   </tr>
+   <tr>   
+   <td align="center" valign="middle"><img src="supplied\BL.jpg"></td>
+   <td style="vertical-align: middle"><b>Benjamin Long</b> has worked closely with an informatics development team as well as with collaborators at the National Institute of Standards and Technology (NIST) and elsewhere to build and grow a distributed informatics platform called the Configurable Data Curation System (CDCS). This platform has been used to support, connect, and integrate scientific projects, communities, workflows, research, and data at different levels. He has also worked with colleagues on the <em>Digital NIST</em> project to explore and prototype models, data, and infrastructure in support of their efforts toward digitalization in metrology. </td>   
    </tr>
    </table>
 
