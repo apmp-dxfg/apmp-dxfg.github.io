@@ -14,7 +14,7 @@ The event is on November 28. It starts at 0000 UTC and ends at 0230 UTC.
 
 <div class="wtb-ew-v1" style="width: 560px; display:inline-block"><script src="https://www.worldtimebuddy.com/event_widget.js?h=100&md=11/28/2022&mt=00.00&ml=2.50&sts=0&sln=0&wt=ew-ltc"></script><i><a target="_blank" href="https://www.worldtimebuddy.com/">Time converter</a> at worldtimebuddy.com</i><noscript><a href="https://www.worldtimebuddy.com/">Time converter</a> at worldtimebuddy.com</noscript><script>window[wtb_event_widgets.pop()].init()</script></div> 
 
-#### Registration is required
+### Registration is required
 
 The webinar will use a Zoom video conferencing platform. 
 
@@ -22,7 +22,7 @@ Please register [here](https://us02web.zoom.us/webinar/register/WN_sHiU01S3SPCu8
 
 After registering you will receive a confirmation email containing information about joining the meeting.  
 
-### This is a preliminary announcement. Further details will be posted here as they become available
+#### As they become available, further details will be posted here
 
 #### Presentations
 
