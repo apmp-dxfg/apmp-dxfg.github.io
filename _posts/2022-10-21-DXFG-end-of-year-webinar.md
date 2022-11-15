@@ -53,7 +53,9 @@ After registering you will receive a confirmation email containing information a
    </tr> 
    <tr>   
    <td><img src="supplied\SP.jpg"></td>
-   <td style="vertical-align: middle"><b>Sundeep Bhandari</b> is Strategy Manager – Digital Sector & Technologies - at the National Physical Laboratory in the United Kingdom.</td>   
+   <td style="vertical-align: middle"><b>Sundeep Bhandari</b> is Strategy Manager (Digital Sector & Technologies) at the NPL. His work focuses on shaping the evolution of physical metrology and measurement into the ‘cyber-physical’ world, embedding measurement and traceability into processes using digital and data sciences to deliver confidence in the intelligent and effective use of data.
+    <p>
+    Sundeep is a member of the various UK Govt panels, groups and boards including: BEIS National Quality Infrastructure Senior Coordination Group; Department of Digital, Culture, Media and Sport (DCMS) UK5G Testbeds and Trial Working group; DCMS Next Generation Special Advisory Group; DCMS Standards Coordination Group; ex-vice-chair of the UN’s ITU Focus Group on Network 2030; IEC Biodigital Convergence, and, an active participant of several ITU and ETSI focus and specifications groups.  More recently he has led NPL’s involvement in establishing the UK Governments International AI Standards Hub.</p></td>   
    </tr>
    <tr>   
    <td align="center" valign="middle"><img src="supplied\BL.jpg"></td>
