@@ -35,6 +35,11 @@ After registering you will receive a confirmation email containing information a
    NMIs are at various stages of their evolution towards Digital Transformation. In this short talk, Sunny will share the NPL journey which started during 2020. Growing over time they looked at how to take the entire organisation, together, forwards step by step. In this talk you will hear about some highlights, challenges and considerations that have been experienced along the way and future directions.     
    
 * Mr. Benjamin Long, NIST (USA), _"Considerations and Themes in Digitalization and the Role of Modelling for Metrology"_ 
+
+   **Abstract** 
+   
+   This talk will share some of the initial experiences from a pilot project in metrology digitalization at NIST, called Digital NIST. 
+   It will also explore some considerations of the nature and role of models and modeling in this and similar efforts in the process of digitalization of metrology.
     
 * Dr. Hugo Gasca Aragon, CENAM (Mexico), _Topic to be confirmed_ 
     
@@ -43,6 +48,12 @@ After registering you will receive a confirmation email containing information a
 * Mr. Ronald Tse, ISO SMART Steering Group, Technical Solutions, _"Digitalization of standards through SMART: an introduction to the IEC/ISO SMART program"_
     
 * Dr. Kazuaki Yamazawa, NMIJ (Japan), _"Activities related to DX in metrology at NMIJ"_
+
+   **Abstract** 
+   
+    NMIJ has launched an internal task force for considering our actions related to DX. 
+    The scope of this task force includes both the improvement of our existing process related to calibration and the planning of future projects where DX can contribute to the field of metrology. 
+    This talk will give a brief introduction of such activities, including our progress on our preparation aiming to issue digital calibration certificates.
   
 #### Speaker details   
  
@@ -60,6 +71,10 @@ After registering you will receive a confirmation email containing information a
    <tr>   
    <td align="center" valign="middle"><img src="supplied\BL.jpg"></td>
    <td style="vertical-align: middle"><b>Benjamin Long</b> has worked closely with an informatics development team as well as with collaborators at the National Institute of Standards and Technology (NIST) and elsewhere to build and grow a distributed informatics platform called the Configurable Data Curation System (CDCS). This platform has been used to support, connect, and integrate scientific projects, communities, workflows, research, and data at different levels. He has also worked with colleagues on the <em>Digital NIST</em> project to explore and prototype models, data, and infrastructure in support of their efforts toward digitalization in metrology. </td>   
+   </tr>
+   <tr>   
+   <td align="center" valign="middle"><img src="supplied\FB_IMG_1628767738587trim.jpg"></td>
+   <td style="vertical-align: middle"><b>Kazuaki YAMAZAWA</b> joined NRLM, which is one of the former bodies of NMIJ, AIST, in 1999. With a background of electrical engineering, he worked in contact thermometry until 2016. After having a two year experience working as an assessor at the accreditation body IAJapan, NITE, from 2018, he is the Quality Manager of NMIJ, AIST for calibration in physics, testing and product certification. With his experience also working as the former TCQS Chair, he is now one of the core members of the APMP DXFG.</td>   
    </tr>
    </table>
 
