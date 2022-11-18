@@ -6,11 +6,11 @@ tags: [news]
 ---
 The APMP has a focus group looking at the challenges posed by digital transformation in metrology. 
 
-To mark the end of its first year in existence, the group is hosting a webinar with speakers from around the world who are involved in efforts to digitalise metrology.  
+To mark the end of its first year, the group is hosting a webinar with speakers from around the world who are involved in efforts to digitalise metrology.  
 
-#### When is the webinar?
+## When is the webinar?
 
-The event is on November 28. It starts at 0000 UTC and ends at 0230 UTC.
+The event is on November 28, starting at 0000 UTC and ending at 0230 UTC.
 
 <div class="wtb-ew-v1" style="width: 560px; display:inline-block"><script src="https://www.worldtimebuddy.com/event_widget.js?h=100&md=11/28/2022&mt=00.00&ml=2.50&sts=0&sln=0&wt=ew-ltc"></script><i><a target="_blank" href="https://www.worldtimebuddy.com/">Time converter</a> at worldtimebuddy.com</i><noscript><a href="https://www.worldtimebuddy.com/">Time converter</a> at worldtimebuddy.com</noscript><script>window[wtb_event_widgets.pop()].init()</script></div> 
 
@@ -20,19 +20,34 @@ The webinar will use a Zoom video conferencing platform.
 
 Please register [here](https://us02web.zoom.us/webinar/register/WN_sHiU01S3SPCu875jsj6HYg)
 
-After registering you will receive a confirmation email containing information about joining the meeting.  
+After registering you will receive an automatic confirmation email containing information about joining the meeting.  
 
-#### As they become available, further details will be posted here
+## Presentations
 
-#### Presentations
+  <br>
 
-* Dr. Blair Hall, MSL (New Zealand), DXFG Chair, _"Welcoming remarks and introduction"_
-    
+* Dr. Blair Hall, MSL (New Zealand), DXFG Chair, _"Welcoming remarks and introduction to the DXFG"_   
+
+   **Abstract** 
+   
+   An APMP Focus Group on Digital Transformation in Metrology (DXFG) has been established to help coordinate activities in the APMP region with international efforts to digitalise metrology and quality infrastructures. 
+   This digital transformation will eventually touch most corners of metrological activity and impact on many people. 
+   There are risks involved, but there are also opportunities. The DXFG aims to identify and capture beneficial opportunities wherever possible.  
+   
+   <p>
+   In its first year, as well as fostering digitalisation initiatives among group members, the DXFG has exchanged information with groups working on digitalisation outside the APMP.
+   This is both helping DXFG members to evaluate digital technologies for their own use, and contributing to the development of basic digital technologies for metrology.
+   </p>
+   
+   <hr style="width:60%;text-align:left;margin-left:0"> 
+   
 * Mr. Sundeep Bhandari, NPL (United Kingdom), _"Paths towards becoming a Digital NMI: The NPL journey"_
 
    **Abstract** 
    
    NMIs are at various stages of their evolution towards Digital Transformation. In this short talk, Sunny will share the NPL journey which started during 2020. Growing over time they looked at how to take the entire organisation, together, forwards step by step. In this talk you will hear about some highlights, challenges and considerations that have been experienced along the way and future directions.     
+   
+   <hr style="width:60%;text-align:left;margin-left:0"> 
    
 * Mr. Benjamin Long, NIST (USA), _"Considerations and Themes in Digitalization and the Role of Modelling for Metrology"_ 
 
@@ -41,16 +56,32 @@ After registering you will receive a confirmation email containing information a
    This talk will share some of the initial experiences from a pilot project in metrology digitalization at NIST, called Digital NIST. 
    It will also explore some considerations of the nature and role of models and modeling in this and similar efforts in the process of digitalization of metrology.
     
+   <hr style="width:60%;text-align:left;margin-left:0"> 
+   
 * Dr. Hugo Gasca Aragon, CENAM (Mexico), _"Digital Representation of Continuous Quantities within the DCC and Digital Twins"_ 
  
    **Abstract** 
  
    The suggested method for combining information shows an unexplored link between abstract algebras, Bayesian statistics and minimal information representation under normality and independence of the random terms. The direct application includes the representation of continuous functions for quantity response and uncertainty in the digital calibration certificates and digital twins.
  
+   <hr style="width:60%;text-align:left;margin-left:0"> 
+   
 * Dr. YANG Ping, NIM (China), _"Digital Transformation Consideration and Progress at NIM"_
+
+   **_Abstract_** 
+ 
+    Digital Transformation is a challenge to all of us. The report introduces some Digital Transformation activities from OIML and from specific AUV case to raise awareness the digital era is coming soon. Then introduce the organization structure and digitalization plan of NIM China.
     
+   <hr style="width:60%;text-align:left;margin-left:0"> 
+   
 * Mr. Ronald Tse, ISO SMART Steering Group, Technical Solutions, _"Digitalization of standards through SMART: an introduction to the IEC/ISO SMART program"_
+
+   **Abstract** 
+ 
+    In response to needs of a digitalized society, ISO and IEC are collaborating on a new class of standards called SMART (“Standards, Machine Applicable, Readable and Transferrable”). Originally coined by the Machine-Readable Standards group of ISO/TMB, SMART is poised to revolutionize access and usage of machine-readable standardization outcomes. The IEC/ISO SMART collaboration framework, established in 2022, provides a common venue for the ISO SMART programme and the digital transformation work of IEC Strategic Group 12 (SG 12). This session will provide a first-hand perspective of SMART — from the beginnings of SMART, to the latest standardization technologies and SMART use cases, and finally a preview of the standardization world post-SMART.
     
+   <hr style="width:60%;text-align:left;margin-left:0"> 
+   
 * Dr. Kazuaki Yamazawa, NMIJ (Japan), _"Activities related to DX in metrology at NMIJ"_
 
    **Abstract** 
@@ -58,9 +89,12 @@ After registering you will receive a confirmation email containing information a
     NMIJ has launched an internal task force for considering our actions related to DX. 
     The scope of this task force includes both the improvement of our existing process related to calibration and the planning of future projects where DX can contribute to the field of metrology. 
     This talk will give a brief introduction of such activities, including our progress on our preparation aiming to issue digital calibration certificates.
+
+   <hr style="width:60%;text-align:left;margin-left:0"> 
+   
   
-#### Speaker details   
- 
+## Speaker details   
+   <br>
    <table>
    <tr>
    <td ><img src="supplied\BDH.jpg"></td>
@@ -77,13 +111,22 @@ After registering you will receive a confirmation email containing information a
    <td style="vertical-align: middle"><b>Benjamin Long</b> has worked closely with an informatics development team as well as with collaborators at the National Institute of Standards and Technology (NIST) and elsewhere to build and grow a distributed informatics platform called the Configurable Data Curation System (CDCS). This platform has been used to support, connect, and integrate scientific projects, communities, workflows, research, and data at different levels. He has also worked with colleagues on the <em>Digital NIST</em> project to explore and prototype models, data, and infrastructure in support of their efforts toward digitalization in metrology. </td>   
    </tr>
    <tr>   
-   <td align="center" valign="middle"><img src="supplied\FB_IMG_1628767738587trim.jpg"></td>
-   <td style="vertical-align: middle"><b>Kazuaki YAMAZAWA</b> joined NRLM, which is one of the former bodies of NMIJ, AIST, in 1999. With a background of electrical engineering, he worked in contact thermometry until 2016. After having a two year experience working as an assessor at the accreditation body IAJapan, NITE, from 2018, he is the Quality Manager of NMIJ, AIST for calibration in physics, testing and product certification. With his experience also working as the former TCQS Chair, he is now one of the core members of the APMP DXFG.</td>   
-   </tr>
-   <tr>   
    <td align="center" valign="middle"><img src="supplied\HGA.jpg"></td>
    <td style="vertical-align: middle"><b>Hugo Gasca</b> is a statistical-mathematician, he joined CENAM in 2013. He is the chair of SIM-MWG-14 on Digital Transformation, Cochair of the IMEKO TC6 on Digitalization, is a member of the SIM-MWG-13 on Statistics and Uncertainty, member of the CCQM-KCRV-WG, collaborates with the NCSLI-MII, is guest in the Euramet projects IM-1448 and IM-1449. At CENAM he is a team member in charge of approval of the national standards. Hugo has more than 30 years of experience in commercial and scientific software development.</td>   
    </tr>
+   <tr>   
+   <td align="center" valign="middle"><img src="supplied\YP.jpg"></td>
+   <td style="vertical-align: middle"><b>Yang Ping</b> joined the acoustic laboratory of NIM China in 2006. In 2009 he became a member of the CIPM CCAUV. From November 2019 he was appointed as APMP TCQS Chair and from October 2022, has been the Deputy Chairperson of OIML-DTG.</td>   
+   </tr>  
+   <tr>   
+   <td align="center" valign="middle"><img src="supplied\RT.jpg"></td>
+   <td style="vertical-align: middle"><b>Ronald Tse</b> is the founder and CEO of Ribose. A key author of the original ISO SMART proposal, Ronald currently represents the Standards Council of Canada as co-chair of the ISO SMART Steering Group’s Technical Solutions subgroup and as co-convenor of IEC/SG 12/TF 1. He serves as Vice President at CalConnect and leading standardization roles at ISO, ECCMA, the Cloud Security Alliance, the EXPRESS Language Foundation and the Enosema Foundation. Ronald graduated from Brown University with a bachelor’s magna cum laude in computer science and in biology, with a masters in computer science.</td>   
+   </tr>
+   <tr>   
+   <td align="center" valign="middle"><img src="supplied\FB_IMG_1628767738587trim.jpg"></td>
+   <td style="vertical-align: middle"><b>Kazuaki YAMAZAWA</b> joined NRLM, which is one of the former bodies of NMIJ, AIST, in 1999. With a background of electrical engineering, he worked in contact thermometry until 2016. After having a two year experience working as an assessor at the accreditation body IAJapan, NITE, from 2018, he is the Quality Manager of NMIJ, AIST for calibration in physics, testing and product certification. With his experience also working as the former TCQS Chair, he is now one of the core members of the APMP DXFG.</td>   
+   </tr>
    </table>
+
 
 {% include links.html %}
