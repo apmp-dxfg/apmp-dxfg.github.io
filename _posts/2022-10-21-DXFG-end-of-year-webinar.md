@@ -41,8 +41,12 @@ After registering you will receive a confirmation email containing information a
    This talk will share some of the initial experiences from a pilot project in metrology digitalization at NIST, called Digital NIST. 
    It will also explore some considerations of the nature and role of models and modeling in this and similar efforts in the process of digitalization of metrology.
     
-* Dr. Hugo Gasca Aragon, CENAM (Mexico), _Topic to be confirmed_ 
-    
+* Dr. Hugo Gasca Aragon, CENAM (Mexico), _"Digital Representation of Continuous Quantities within the DCC and Digital Twins"_ 
+ 
+   **Abstract** 
+ 
+   The suggested method for combining information shows an unexplored link between abstract algebras, Bayesian statistics and minimal information representation under normality and independence of the random terms. The direct application includes the representation of continuous functions for quantity response and uncertainty in the digital calibration certificates and digital twins.
+ 
 * Dr. YANG Ping, NIM (China), _"Digital Transformation Consideration and Progress at NIM"_
     
 * Mr. Ronald Tse, ISO SMART Steering Group, Technical Solutions, _"Digitalization of standards through SMART: an introduction to the IEC/ISO SMART program"_
@@ -75,6 +79,10 @@ After registering you will receive a confirmation email containing information a
    <tr>   
    <td align="center" valign="middle"><img src="supplied\FB_IMG_1628767738587trim.jpg"></td>
    <td style="vertical-align: middle"><b>Kazuaki YAMAZAWA</b> joined NRLM, which is one of the former bodies of NMIJ, AIST, in 1999. With a background of electrical engineering, he worked in contact thermometry until 2016. After having a two year experience working as an assessor at the accreditation body IAJapan, NITE, from 2018, he is the Quality Manager of NMIJ, AIST for calibration in physics, testing and product certification. With his experience also working as the former TCQS Chair, he is now one of the core members of the APMP DXFG.</td>   
+   </tr>
+   <tr>   
+   <td align="center" valign="middle"><img src="supplied\HGA.jpg"></td>
+   <td style="vertical-align: middle"><b>Hugo Gasca</b> is a statistical-mathematician, he joined CENAM in 2013. He is the chair of SIM-MWG-14 on Digital Transformation, Cochair of the IMEKO TC6 on Digitalization, is a member of the SIM-MWG-13 on Statistics and Uncertainty, member of the CCQM-KCRV-WG, collaborates with the NCSLI-MII, is guest in the Euramet projects IM-1448 and IM-1449. At CENAM he is a team member in charge of approval of the national standards. Hugo has more than 30 years of experience in commercial and scientific software development.</td>   
    </tr>
    </table>
 
