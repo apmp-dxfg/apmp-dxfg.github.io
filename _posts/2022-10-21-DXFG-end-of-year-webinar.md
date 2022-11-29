@@ -6,21 +6,9 @@ tags: [news]
 ---
 The APMP has a focus group looking at the challenges posed by digital transformation in metrology. 
 
-To mark the end of its first year, the group is hosting a webinar with speakers from around the world who are involved in efforts to digitalise metrology.  
+To mark the end of its first year, the group hosted a webinar on November 28, 2022, with speakers from around the world who are involved in efforts to digitalise metrology.  
 
-## When is the webinar?
-
-The event is on November 28, starting at 0000 UTC and ending at 0230 UTC.
-
-<div class="wtb-ew-v1" style="width: 560px; display:inline-block"><script src="https://www.worldtimebuddy.com/event_widget.js?h=100&md=11/28/2022&mt=00.00&ml=2.50&sts=0&sln=0&wt=ew-ltc"></script><i><a target="_blank" href="https://www.worldtimebuddy.com/">Time converter</a> at worldtimebuddy.com</i><noscript><a href="https://www.worldtimebuddy.com/">Time converter</a> at worldtimebuddy.com</noscript><script>window[wtb_event_widgets.pop()].init()</script></div> 
-
-### Registration is required
-
-The webinar will use a Zoom video conferencing platform. 
-
-Please register [here](https://us02web.zoom.us/webinar/register/WN_sHiU01S3SPCu875jsj6HYg)
-
-After registering you will receive an automatic confirmation email containing information about joining the meeting.  
+Some of the presentations were recorded and can be reviewed from links provided below.
 
 ## Presentations
 
@@ -80,6 +68,10 @@ After registering you will receive an automatic confirmation email containing in
  
     In response to needs of a digitalized society, ISO and IEC are collaborating on a new class of standards called SMART (“Standards, Machine Applicable, Readable and Transferrable”). Originally coined by the Machine-Readable Standards group of ISO/TMB, SMART is poised to revolutionize access and usage of machine-readable standardization outcomes. The IEC/ISO SMART collaboration framework, established in 2022, provides a common venue for the ISO SMART programme and the digital transformation work of IEC Strategic Group 12 (SG 12). This session will provide a first-hand perspective of SMART — from the beginnings of SMART, to the latest standardization technologies and SMART use cases, and finally a preview of the standardization world post-SMART.
     
+    <p>
+    <a href="https://youtu.be/PMorbycRyo8" target="_blank">Recording</a>
+    </p>
+      
    <hr style="width:60%;text-align:left;margin-left:0"> 
    
 * Dr. Kazuaki Yamazawa, NMIJ (Japan), _"Activities related to DX in metrology at NMIJ"_
@@ -90,9 +82,13 @@ After registering you will receive an automatic confirmation email containing in
     The scope of this task force includes both the improvement of our existing process related to calibration and the planning of future projects where DX can contribute to the field of metrology. 
     This talk will give a brief introduction of such activities, including our progress on our preparation aiming to issue digital calibration certificates.
 
-   <hr style="width:60%;text-align:left;margin-left:0"> 
+    <p>
+    <a href="https://youtu.be/d00S13xsO8o" target="_blank">Recording</a>
+    </p>
+      
+    <hr style="width:60%;text-align:left;margin-left:0"> 
    
-  
+    
 ## Speaker details   
    <br>
    <table>
