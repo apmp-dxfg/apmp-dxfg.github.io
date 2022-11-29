@@ -26,7 +26,11 @@ Some of the presentations were recorded and can be reviewed from links provided 
    In its first year, as well as fostering digitalisation initiatives among group members, the DXFG has exchanged information with groups working on digitalisation outside the APMP.
    This is both helping DXFG members to evaluate digital technologies for their own use, and contributing to the development of basic digital technologies for metrology.
    </p>
-   
+ 
+   <p>
+   <a href="https://youtu.be/8MfyIl51KhI" target="_blank">Recording</a>
+   </p>
+
    <hr style="width:60%;text-align:left;margin-left:0"> 
    
 * Mr. Sundeep Bhandari, NPL (United Kingdom), _"Paths towards becoming a Digital NMI: The NPL journey"_
