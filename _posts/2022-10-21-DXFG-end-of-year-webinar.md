@@ -34,7 +34,11 @@ Some of the presentations were recorded and can be reviewed from links provided 
    **Abstract** 
    
    NMIs are at various stages of their evolution towards Digital Transformation. In this short talk, Sunny will share the NPL journey which started during 2020. Growing over time they looked at how to take the entire organisation, together, forwards step by step. In this talk you will hear about some highlights, challenges and considerations that have been experienced along the way and future directions.     
-   
+ 
+   <p>
+   <a href="https://youtu.be/Es386wDM5NY" target="_blank">Recording</a>
+   </p>
+
    <hr style="width:60%;text-align:left;margin-left:0"> 
    
 * Mr. Benjamin Long, NIST (USA), _"Considerations and Themes in Digitalization and the Role of Modelling for Metrology"_ 
@@ -44,6 +48,10 @@ Some of the presentations were recorded and can be reviewed from links provided 
    This talk will share some of the initial experiences from a pilot project in metrology digitalization at NIST, called Digital NIST. 
    It will also explore some considerations of the nature and role of models and modeling in this and similar efforts in the process of digitalization of metrology.
     
+   <p>
+   <a href="https://youtu.be/WTE8hE223xw" target="_blank">Recording</a>
+   </p>
+
    <hr style="width:60%;text-align:left;margin-left:0"> 
    
 * Dr. Hugo Gasca Aragon, CENAM (Mexico), _"Digital Representation of Continuous Quantities within the DCC and Digital Twins"_ 
@@ -52,6 +60,10 @@ Some of the presentations were recorded and can be reviewed from links provided 
  
    The suggested method for combining information shows an unexplored link between abstract algebras, Bayesian statistics and minimal information representation under normality and independence of the random terms. The direct application includes the representation of continuous functions for quantity response and uncertainty in the digital calibration certificates and digital twins.
  
+   <p>
+   <a href="https://youtu.be/Q6x4IpiEoww" target="_blank">Recording</a>
+   </p>
+
    <hr style="width:60%;text-align:left;margin-left:0"> 
    
 * Dr. YANG Ping, NIM (China), _"Digital Transformation Consideration and Progress at NIM"_
@@ -60,6 +72,10 @@ Some of the presentations were recorded and can be reviewed from links provided 
  
     Digital Transformation is a challenge to all of us. The report introduces some Digital Transformation activities from OIML and from specific AUV case to raise awareness the digital era is coming soon. Then introduce the organization structure and digitalization plan of NIM China.
     
+   <p>
+   <a href="https://youtu.be/BeDDDaHG3AM" target="_blank">Recording</a>
+   </p>
+
    <hr style="width:60%;text-align:left;margin-left:0"> 
    
 * Mr. Ronald Tse, ISO SMART Steering Group, Technical Solutions, _"Digitalization of standards through SMART: an introduction to the IEC/ISO SMART program"_
