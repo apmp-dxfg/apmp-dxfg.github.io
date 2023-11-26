@@ -13,7 +13,4 @@ layout: page
   <figcaption>The Asia Pacific Metrology Programme has a special focus group looking at digitalisation in metrology.</figcaption>
 </figure>
 
-
-{% include important.html content="This site is currently under construction" %}
-
 {% include links.html %}
