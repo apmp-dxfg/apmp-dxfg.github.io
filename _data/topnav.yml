@@ -7,11 +7,16 @@ topnav:
       # external_url: https://github.com/apmp-dxfg/apmp-dxfg
     - title: News
       url: /news
-
+      
 #Topnav dropdowns
 topnav_dropdowns:
 - title: Topnav dropdowns
   folders:
+    - title: Resources
+      folderitems:
+      - title: PDF/A-3
+        url: /dxfg-pdfa-tut
+        
     - title: External Links
       folderitems:
         - title: EURAMET TC-IM WG M4D
