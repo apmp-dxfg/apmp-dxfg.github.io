@@ -18,4 +18,7 @@ However, since 2020, LaTeX has embarked on a multi-year [development project](ht
  
 The DXFG is making information and examples available here that will help develop PDF/A capability tailored to individual needs. A [github repository](https://github.com/apmp-dxfg/pdfa3-documents) is also available. 
 
+## Resources
+We use [LaTeX](/latex-res.html) to produce PDF/A-3 documents.
+
 {% include links.html %}
