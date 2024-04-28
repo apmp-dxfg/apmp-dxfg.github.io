@@ -13,8 +13,9 @@ layout: page
 
 LaTeX is not a stand-alone typesetting program. It runs on top of a typesetting system called TeX. [TeX distributions](https://www.latex-project.org/get/#tex-distributions) usually bundle together all the parts needed for a working TeX system and they generally add to this both configuration and maintenance utilities. 
 
-To use the features of LaTeX developed for tagged data (in PDF files), it is important to keep your LaTeX distribution that is up to date.
+To use the features of LaTeX developed for tagged data (in PDF files), it is important to keep your LaTeX distribution up to date.
 
-The examples presented here were developed using the latest version of [MiTeX](https://miktex.org/). However, they should also work on any up to date LaTeX distribution. 
+People usually work with LaTeX using an editor tool. We do not recommend any particular editor and will give command line instructions for processing where necessary, which should work correctly with all LaTeX distributions. The examples presented here were developed using the latest version of [MiTeX](https://miktex.org/) for Windows.  
+
 
 {% include links.html %}
