@@ -15,6 +15,6 @@ LaTeX is not a stand-alone typesetting program. It runs on top of a typesetting 
 
 To use the features of LaTeX developed for tagged data (in PDF files), it is important to keep your LaTeX distribution that is up to date.
 
-The examples presented here were developed using the latest version of [MiTeX](https://miktex.org/). However, they should alos work on any up to date LaTeX distribution. 
+The examples presented here were developed using the latest version of [MiTeX](https://miktex.org/). However, they should also work on any up to date LaTeX distribution. 
 
 {% include links.html %}
