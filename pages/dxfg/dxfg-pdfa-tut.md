@@ -24,6 +24,8 @@ The [LaTeX](latex-res.html) page has information about LaTeX software that can p
 
 Independent software is needed to PDF/A-3 documents against the official PDF standard. We use the [veraPDF](https://verapdf.org/home/) *Implementation Checker* tool to validate documents.
 
+Files embedded in a PDF/A-3 document can be extracted automatically using software or by hand using any of the popular PDF reader applications. We use the Python package [pypdf](https://pypi.org/project/pypdf/) to extract files.
+
 ## A Simple Example
 A short example illustrates how to produce PDF/A-3 with LaTeX (the files shown may be accessed in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents)). 
 
@@ -66,4 +68,22 @@ Processing the LaTeX file generates a PDF output. The command line instruction t
 In the LaTeX file, the `\DocumentMetadata` command activates the new tagged-data features of LaTeX. This command must come before `\documentclass`. Files can be embedded using the `embedfile` package command `\embedfile`.  
 
 The veraPDF checker can be used to confirm that the PDF file produced complies with the PDF/A-3b standard.
+
+The embedded file `attachme.txt` can be extracted from `ex.pdf` and its contents displayed, as shown here:
+```py
+from pypdf import PdfReader
+
+attached = PdfReader("ex.pdf").attachments  
+
+if len(attached) != 1:
+    raise RuntimeError("Expect a single attachment")
+
+for file_name, content_list in attached.items():
+
+    # Elements in content_list are Python byte-literals
+    # Here we convert the bytes to a string.
+    content_as_str = content_list[0].decode('utf-8')
+    
+    print(f"\nThe {file_name} file contents are:\t{content_as_str!r}")
+``` 
 {% include links.html %}
