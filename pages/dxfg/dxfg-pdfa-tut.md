@@ -3,33 +3,33 @@ title: PDF/A-3 Documents
 last_updated: April 28, 2024
 summary: "Information about generating PDF/A-3 documents using LaTeX"
 permalink: dxfg-pdfa-tut.html
-toc: false
+toc: true
 mathjax: true
 layout: page
 ---
 {% include important.html content="This page is currently being written and has not yet been reviewed" %}
 
 ## Preliminaries
-The PDF/A-3 file format offers a pathway, from purely human-readable documents to machine-readable documents. PDF/A-3 file formats can deliver readable metrological documents (i.e., PDF reader software can display the document) with digital files attached. This format can be used by calibration laboratories to tailor reporting to the needs of their customers as they move closer to using digital data. 
+The PDF/A-3 file format offers a pathway for production of human-readable documents that also contain machine-readable documents. PDF/A-3 file formats can deliver readable metrological documents (i.e., PDF reader software can display the document) with digital files attached. This format can be used by calibration laboratories to tailor reporting to the needs of their customers as they move closer to using digital data. 
 
-The suggestion to use PDF/A-3 formats for reporting metrological data was made by [METAS](https://doi.org/10.1016/j.measen.2021.100282). A proof-of-concept package has been published on [github](https://github.com/metas-ch/metas-ecertificate), which uses open-source tools---notably the LaTeX system for typesetting document---to create PDF/A files. 
+The suggestion to use PDF/A-3 formats when reporting metrological data was made by [METAS](https://doi.org/10.1016/j.measen.2021.100282). A proof-of-concept package has been published on [github](https://github.com/metas-ch/metas-ecertificate), which uses open-source tools to create PDF/A files---notably the LaTeX system for typesetting documents. 
 
-However, since 2020, LaTeX has embarked on a multi-year [development project](https://pdfa.org/presentation/tagged-and-accessible-pdf-with-latex/) to produce tagged and accessible PDF from existing LaTeX sources with no or only minimal configuration adjustments.  This project has already simplified generation of PDF/A-3 documents. In the longer term, PDF files produced using LaTeX will contain rich semantic content that is machine readable. This is an exciting prospect for digital transformation in metrology.
+Since 2020, LaTeX has embarked on a multi-year [development project](https://pdfa.org/presentation/tagged-and-accessible-pdf-with-latex/) to produce tagged and accessible PDF from existing LaTeX source files with no or only minimal configuration adjustments.  This project has already simplified the generation of PDF/A-3 documents. In the longer term, PDF files produced using LaTeX could contain rich semantic machine-readable content. This is an exciting prospect for digital transformation in metrology.
  
-The DXFG is making information and examples available here that will help develop PDF/A capability tailored to individual needs. A [github repository](https://github.com/apmp-dxfg/pdfa3-documents) is also available. 
+In these pages the DXFG is making information and examples available that will help develop PDF/A capability tailored to the needs of different members. A [github repository](https://github.com/apmp-dxfg/pdfa3-documents) is also available. 
 
 ## Resources
 
-The [LaTeX](latex-res.html) page has information about LaTeX software that can produce PDF/A-3 documents.
+A [LaTeX](latex-res.html) page has information about LaTeX software for producing PDF/A-3 documents.
 
-Independent software is needed to PDF/A-3 documents against the official PDF standard. We use the [veraPDF](https://verapdf.org/home/) *Implementation Checker* tool to validate documents.
+Independent software is needed to validate PDF/A-3 documents against the official PDF [ISO standard](https://pdfa.org/resource/iso-19005-pdfa/). We use the [veraPDF](https://verapdf.org/home/) *Implementation Checker* tool to validate documents.
 
-Files embedded in a PDF/A-3 document can be extracted automatically using software or by hand using any of the popular PDF reader applications. We use the Python package [pypdf](https://pypi.org/project/pypdf/) to extract files.
+Files embedded in a PDF/A-3 document can be extracted automatically by software or by hand using any of the popular PDF reader applications. We show how to use the Python package [pypdf](https://pypi.org/project/pypdf/) to extract files.
 
-## A Simple Example
+## An Example
 A short example illustrates how to produce PDF/A-3 with LaTeX (the files shown may be accessed in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents)). 
 
-In this example, a text file `attachme.txt` is embedded in the PDF output. A LaTeX file, `ex.tex`, is used to create the output `ex.pdf`. 
+In this example, a text file `attachme.txt` is embedded in the PDF output. A LaTeX file (`ex.tex`) is used to create the file `ex.pdf`. 
 
 The contents of `attachme.txt` are
 ```
@@ -60,16 +60,16 @@ A text file, \texttt{attachme.txt}, is embedded in the PDF document.
 
 \end{document}
 ```
-Processing the LaTeX file generates a PDF output. The command line instruction to do this is
+A PDF output file, `ex.pdf`, is generated by the `pdflatex` command, like this:
 ```
 > pdflatex ex.tex
 ```
 
-In the LaTeX file, the `\DocumentMetadata` command activates the new tagged-data features of LaTeX. This command must come before `\documentclass`. Files can be embedded using the `embedfile` package command `\embedfile`.  
+In the LaTeX source file, the `\DocumentMetadata` command activates new features of LaTeX. This command must come before `\documentclass`. Files can be embedded using the `embedfile` package command `\embedfile`.  
 
 The veraPDF checker can be used to confirm that the PDF file produced complies with the PDF/A-3b standard.
 
-The embedded file `attachme.txt` can be extracted from `ex.pdf` and its contents displayed, as shown here:
+To extract the contents of the embedded file `attachme.txt`, we can use the Python package `pypdf`:
 ```py
 from pypdf import PdfReader
 
@@ -86,4 +86,39 @@ for file_name, content_list in attached.items():
     
     print(f"\nThe {file_name} file contents are:\t{content_as_str!r}")
 ``` 
+
+### Embedding a spreadsheet
+To embed a spreadsheet instead of a text file, we just change the mimetype specified in `\embedfilesetup`, from `mimetype=application/octet-stream` to `mimetype=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`. An exmple is given in `ex_xlsx.tex`, in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents)). 
+
+To access the spreadsheet from Python we proceed as follows, using the Python spreadsheet package `openpyxl`:
+```py
+import io
+import openpyxl
+
+from pypdf import PdfReader
+
+attached = PdfReader("ex_xlsx.pdf").attachments  
+
+if len(attached) != 1:
+    raise RuntimeError("Expect a single attachment")
+
+for file_name, content_list in attached.items():
+
+    # Elements in content_list are Python byte-literals
+    # Assuming byte_string contains the byte data of the XLSX file
+    xlsx_data = io.BytesIO( content_list[0] )
+    
+    # Load the Excel workbook from the byte data
+    workbook = openpyxl.load_workbook(xlsx_data)
+    
+    # Access the sheets in the workbook
+    sheets = workbook.sheetnames
+
+    # Iterate over each sheet and extract data
+    for sheet_name in sheets:
+        sheet = workbook[sheet_name]
+        print(f"Sheet: {sheet_name}")
+        for row in sheet.iter_rows(values_only=True):
+            print(row)
+```
 {% include links.html %}

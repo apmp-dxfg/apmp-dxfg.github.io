@@ -16,7 +16,8 @@ topnav_dropdowns:
       folderitems:
       - title: PDF/A-3
         url: /dxfg-pdfa-tut
-        
+      - title: Document verification
+        url: /dxfg-checksum-tut
     - title: External Links
       folderitems:
         - title: EURAMET TC-IM WG M4D
