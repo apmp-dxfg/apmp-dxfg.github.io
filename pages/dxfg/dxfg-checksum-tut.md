@@ -7,8 +7,6 @@ toc: true
 mathjax: true
 layout: page
 ---
-{% include important.html content="This page is currently being written and has not yet been reviewed" %}
-
 ## Introduction
 Checksums are used to detect changes in digital records, perhaps caused during transmission, or storage, or by some other operation. Checksums are short blocks of data (e.g., strings), which are readily calculated on computer systems. A checksum algorithm produces different values for different inputs (documents). So, it is possible to establish the integrity of digital records by comparing the initial checksum of a document with a checksum evaluated later. 
 
@@ -45,7 +43,7 @@ app = Flask(__name__)
 
 checksums = set()
 
-@app.route('/validate/<checksum>')
+@app.route('/verify/<checksum>')
 def verify(checksum):
     return str( checksum in checksums )
 
@@ -79,10 +77,21 @@ To run the server, first ensure that Python packages `flask` and `gevent` are in
 > python checksum.py
 ```
  
+{% include note.html content=" 
+If running the python command raises and error similar to either <br>
+<tt>&emsp; OSError: [Errno 98] Address already in use: ('0.0.0.0', 8080)​</tt><br>
+or<br> 
+<tt>&emsp; OSError: [WinError 10048] Only one usage of each socket address (protocol/network address/port) is normally permitted: ('0.0.0.0', 8080)</tt>​<br>
+then change the value of the `port` parameter (e.g., port = 8000) and re-run the command."
+%}
 
 An internal collection of 10 checksums are included in this script. Open a web browser and go to `http://localhost:8080/verify/a-checksum-string`, where `a-checksum-string` is a string of characters. 
 
 "True" will appear in the browser window if one of the 10 defined checksums is used (e.g., `http://localhost:8080/verify/62cdb7020ff920e5aa642c3d4066950dd1f01f4d18ef927cfb523c4982f1b240`). Otherwise, "False" will appear.
+
+{% include note.html content="This example has no mechanism to add and remove checksums from the collection. Secure access to a database of checksums would be needed."
+%}
+
 
 ### Calculating checksums 
 
@@ -92,3 +101,18 @@ On Windows computers, the SHA-256 checksum can be calculated using the `CertUtil
 ```
 > CertUtil -hashfile "path_to_your_file" SHA256
 ```
+On UNIX computers the checksum can be calculated by
+```
+shasum -a 256 "path_to_your_file"
+```
+
+### A Use Case
+
+Suppose NMI-X issues a report to Customer-Y. The report is a PDF/A document that contains several embedded digital files. NMI-X sends the report to Customer-Y by email.
+
+ * Customer-Y can verify the integrity of the report document at any time, by evaluating the checksum and using it to query the NMI-X online verification server. 
+ * Indeed, Customer-Y can automate this, allowing the report to be checked, before data is extracted, whenever it is used.
+ * Furthermore, checksums for the embedded files can be verified online. So, if Customer-Y has extracted the embedded files to a different location in their file system, the integrity of those files can be checked independently.
+ 
+If NMI-X needs to re-issue the report and change any of the embedded files, the corresponding checksums are removed from the verification server database. 
+ * Customer-Y can detect the report's status immediately and can also identify any embedded files in the original that remain valid.
