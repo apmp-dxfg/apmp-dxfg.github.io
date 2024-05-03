@@ -72,7 +72,7 @@ if __name__ == '__main__':
         pass
 ```  
 
-To run the server, first ensure that Python packages `flask` and `gevent` are installed (if necessary run `pip install flask gevent`). Then execute the script (if the script has been saved as `checksum.py`, run it at the command line, e.g.: 
+To run the server, first ensure that Python packages `flask` and `gevent` are installed (if necessary run `pip install flask gevent`). Then execute the script at the command line, e.g. (if the script was saved as `checksum.py`): 
 ```
 > python checksum.py
 ```
@@ -103,7 +103,7 @@ On Windows computers, the SHA-256 checksum can be calculated using the `CertUtil
 ```
 On UNIX computers the checksum can be calculated by
 ```
-shasum -a 256 "path_to_your_file"
+> shasum -a 256 "path_to_your_file"
 ```
 
 ### A Use Case
