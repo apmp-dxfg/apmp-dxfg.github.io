@@ -1,6 +1,6 @@
 ---
 title: Checksum Verification of Documents
-last_updated: May 1, 2024
+last_updated: May 17, 2024
 summary: "Information about using a web service to verify documents issued by an authoritative body."
 permalink: dxfg-checksum-tut.html
 toc: true
@@ -27,9 +27,8 @@ However, laboratories occasionally need to cancel a report and re-issue a correc
 ## An online checksum registry
 Providing an online register of valid checksums is a way that an issuing laboratory can improve their document management and help their customers. Customers can submit the checksum of any document to the register to automatically determine its current status. 
 
-Verification using an online registry service does not expose the document itself. Only the checksum is transmitted to the server, which is completely anonymous. So, this approach does not raise concerns about privacy and confidentiality of information.
-
-
+Verification using an online registry service does not expose the document itself. Only the checksum is transmitted to the server, which is completely anonymous. So, this approach does not raise concerns about privacy and confidentiality of information. Furthermore, an online service will be available anywhere. So, report validity could be carried out in a different country to the issuing authority.
+ 
 ### Example running on localhost
 The following Python script demonstrates the idea. The script runs locally. 
 

@@ -10,13 +10,13 @@ layout: page
 {% include important.html content="This page is currently being written and has not yet been reviewed" %}
 
 ## Preliminaries
-The PDF/A-3 file format offers a pathway to produce human-readable documents that are also containers for machine-readable documents. So, PDF/A-3 file formats can deliver readable metrological documents (i.e., PDF reader software can display the document) with digital files embedded. This format can be used by calibration laboratories to tailor their reporting to the needs of customers. 
+The PDF/A-3 file format offers a way to produce human-readable documents which can also contain machine-readable documents. So, PDF/A formats can be used by calibration laboratories to tailor reports to the needs of customers. Using PDF/A-3 file formats can deliver readable metrological documents (i.e., PDF reader software can display the document) with digital files embedded. 
 
-The suggestion to use PDF/A-3 formats for reporting metrological data was made by [METAS](https://doi.org/10.1016/j.measen.2021.100282). A proof-of-concept package has been published on [github](https://github.com/metas-ch/metas-ecertificate), which uses open-source tools to create PDF/A files---notably the LaTeX system for typesetting documents. 
+The suggestion to use PDF/A-3 formats for reporting metrological data was first made by [METAS](https://doi.org/10.1016/j.measen.2021.100282). A proof-of-concept package is published on [github](https://github.com/metas-ch/metas-ecertificate), which uses open-source tools to create PDF/A files---notably the LaTeX system for typesetting documents. However, more recent developments have improved LaTeX system support for generating PDF files.
 
-Since 2020, LaTeX has embarked on a multi-year [development project](https://pdfa.org/presentation/tagged-and-accessible-pdf-with-latex/) to produce tagged and accessible PDF from existing LaTeX source files with no or only minimal configuration adjustments.  This project has already simplified the generation of PDF/A-3 documents. In the longer term, PDF files produced using LaTeX could contain rich semantic machine-readable content. This is an exciting prospect for digital transformation in metrology.
+Since 2020, LaTeX has embarked on a multi-year [development project](https://pdfa.org/presentation/tagged-and-accessible-pdf-with-latex/) to produce tagged and accessible PDF from existing LaTeX source files with no or only minimal configuration adjustments.  This project has simplified the generation of PDF/A-3 documents. In the longer term, PDF files produced using LaTeX will contain rich semantic machine-readable content, which is an exciting long-term prospect for digital transformation in metrology.
  
-In these pages the DXFG is making information and examples available that will help to develop PDF/A capability tailored to the specific needs of different members. A [github repository](https://github.com/apmp-dxfg/pdfa3-documents) is also available. 
+In these pages, the DXFG is making information and examples available to help members develop PDF/A capabilities tailored to the needs of their customers. A [github repository](https://github.com/apmp-dxfg/pdfa3-documents) of associated files is also provided. 
 
 ## Resources
 
@@ -24,20 +24,20 @@ A [LaTeX](latex-res.html) page has information about LaTeX software for producin
 
 Independent software is needed to validate PDF/A-3 documents against the official PDF [ISO standard](https://pdfa.org/resource/iso-19005-pdfa/). We use the [veraPDF](https://verapdf.org/home/) *Implementation Checker* tool to validate documents.
 
-Files embedded in a PDF/A-3 document can be extracted automatically by software, or by hand using any of the popular PDF reader applications. We use the Python package [pypdf](https://pypi.org/project/pypdf/) to extract files in the examples below.
+Files embedded in a PDF/A-3 document can be extracted by hand using any of the popular PDF reader applications or automatically using software. We use the Python package [pypdf](https://pypi.org/project/pypdf/) to extract files in the examples below, but there are other Python packages that may also be considered, such as [pikepdf](https://pypi.org/project/pikepdf/).
 
 ## Examples
 
 ### Embedding a text file
 
-This example produces a PDF/A-3 file with an embedded text file `attachme.txt` (files shown are available in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents)). 
+This example produces a PDF/A-3 file with an embedded text file, called `attachme.txt` (files shown are available in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents)). 
 
-The contents of `attachme.txt` are simply
+The contents of `attachme.txt` is just one line:
 ```
 This file will be attached to a PDF document
 ``` 
 
-A LaTeX file (`ex.tex`) is used to create the final output, `ex.pdf`:
+A LaTeX file (`ex.tex`) is used to create the output, `ex.pdf`:
 ```tex
 \DocumentMetadata{
     pdfversion=1.7,
@@ -62,18 +62,18 @@ A text file, \texttt{attachme.txt}, is embedded in the PDF document.
 
 \end{document}
 ```
-The PDF file `ex.pdf` is generated using the `pdflatex` command, like this:
+The output `ex.pdf` is generated by `pdflatex` on the comand line, like this:
 ```
 > pdflatex ex.tex
 ```
 
 In the LaTeX source file, the `\DocumentMetadata` command activates new features of LaTeX. This command must come before `\documentclass`. 
 
-Files are embedded using the `embedfile` package command `\embedfile`.  
+Files are embedded using the command `\embedfile` from the `embedfile` package.  
 
 The veraPDF checker can be used to confirm that the PDF file produced complies with the PDF/A-3b standard.
 
-To extract the contents of the embedded file `attachme.txt`, we can use the Python package `pypdf`:
+The Python package `pypdf` can extract the contents of the embedded file `attachme.txt`:
 ```py
 from pypdf import PdfReader
 
@@ -94,7 +94,7 @@ for file_name, content_list in attached.items():
 ### Embedding a spreadsheet
 This example produces a PDF/A file with an embeded spreadsheet. The LaTeX file for this example is `ex_xlsx.tex`, in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents)). 
 
-We must specify `mimetype=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet` in the command `\embedfilesetup`.  Here is the LaTeX source code:
+Here is the LaTeX source code:
 ```tex
 \DocumentMetadata{
     pdfversion=1.7,
@@ -118,8 +118,9 @@ You can check that this PDF document complies with the PDF/A-3 standard by using
 
 \end{document}
 ```
+Note, we now specify `mimetype=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet` in the command `\embedfilesetup`.  
 
-We can use Python (using the spreadsheet package `openpyxl`) to access the spreadsheet:
+The embedded spreadsheet is accessible using the spreadsheet package `openpyxl`:
 ```py
 import io
 import openpyxl
@@ -152,22 +153,20 @@ for file_name, content_list in attached.items():
 ```
 
 ### XMP metadata
-Adobe allows information formatted in XML to be included in a PDF file. This is known as [XMP metadata](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform). PDF reader software is often able to display this metadata, but it is primarily intended for easy sharing and transfer of files across products, vendors, platforms, without metadata getting lost. 
+Adobe allows XML metadata to be included in a PDF file. This is known as [XMP metadata](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform).  
 
-Here is an example where the title, author, date, and publisher are recorded in the PDF/A file as metadata (a complete list of supported metadata is given in the [hyperref](http://mirrors.ctan.org/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf)) package documentation. 
+Here is an example where the title and author are recorded as metadata (a complete list of supported metadata is given in the [hyperref](http://mirrors.ctan.org/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf)) package documentation. 
 ```tex
 \DocumentMetadata{
     pdfversion=1.7,
     pdfstandard=A-3b,
 }
 \documentclass{article}
+
 \usepackage{hyperref}
 \hypersetup{
     pdftitle={On a heuristic viewpoint concerning the production and transformation of light},
-    pdfsubtitle={[en-US]Putting that bum Maxwell in his place},
-    pdfauthor={Albert Einstein},
-    pdfdate={1905-03-17},
-    pdfpublisher={Wiley-VCH},
+    pdfauthor={Albert Einstein}
 }
 
 \begin{document}
@@ -176,15 +175,147 @@ You can check that this PDF document complies with the PDF/A-3b standard by usin
 \end{document}
 ``` 
 
-Python can read this metadata using `pypdf`. However, `pypdf` only makes a few elements accessible as Python attributes, as shown below. Access to the all XMP data is more complicated. So, we will deal with that elsewhere. 
+XMP metadata is intended to be read by machines. For example, PDF reader software is often able to display the metadata although it is primarily intended to facilitate sharing and transfer of files across products, vendors, platforms, without metadata getting lost. There are Python packages that can access the XMP data. The `pypdf` package used earlier makes a few elements accessible as Python attributes, as shown below, but access to the all XMP data is more complicated. 
 ```py
 from pypdf import PdfReader
 
-meta = PdfReader("ex.pdf").xmp_metadata 
+meta = PdfReader("ex_xmp.pdf").xmp_metadata 
 
-print( meta.dc_title )
-print( meta.dc_creator )
-print( meta.dc_date )
-print( meta.dc_publisher )
+print( meta.dc_title['x-default'] )
+print( ",".join( meta.dc_creator ) )
 ```
+Another package that can access XMP data is [pikepdf](https://pypi.org/project/pikepdf/), shown in this code snippet
+```py
+from pikepdf import Pdf
+
+with Pdf.open('ex_xmp.pdf') as pdf:
+    with pdf.open_metadata() as meta:
+        print( meta['dc:title'] )
+        print( ",".join( meta['dc:creator'] ) )
+```
+
+## Creating Calibration Reports in LaTeX
+The LaTeX approach to creating documents tries to separate the specification of document layout from a document's content. In other words, the style and typesetting are separated from the text, figures, tables, etc. 
+This section will go step-by-step through an example where we will build up a LaTeX style specification for calibration reports from a fictitious NMI. 
+
+Before we begin, it will help to take a look at the final result. So, we have an idea of what we are working towards. Here is a source file for a calibration that uses the LaTeX style we will create (the style, or class, is called `LMIReport`). We see that there are LaTeX commands that 'mark-up' the text and other content, but that mark-up doesn't tell us about the document appearance. The PDF/A file created from this source is available []()
+ <a href="supplied\ex_report.pdf" target="_blank">here (opens a new tab)</a>---an `XLSX` spreadsheet with data is also embedded in the report.
+{% highlight tex %}
+{% raw %}
+\DocumentMetadata{
+    pdfversion=1.7,
+    pdfstandard=A-3b,
+}
+\documentclass[11pt,a4paper]{LMIReport}
+
+\Metrologist{Luke Skywalker}
+\ChiefMetrologist{Princess Leia Organa}
+\ReportNumber{12345} 
+\ReportTitle{A report on the calibration of an type-N male open}
+\date{17 May 2035}
+
+\begin{document}	
+% Possible section headings: Description, Identification, Client
+% Reference, Date(s) of Calibration (of Test), Objective
+% Method, Conditions, Notes, Results, Uncertainty, Conclusion
+%
+\section{Description}
+The components are from a USC vector network analyser calibration kit model 8599. 
+
+\section{Identification}
+The component serial number is 2221X.
+
+\section{Client}
+United Spacecraft Corporation, 51 Mare Tranquillitatis, The Moon.
+
+\section{Date of Calibration}
+The measurements were performed on the 7$^\mathrm{th}$ of February 2035.
+
+\section{Conditions}
+Ambient temperature was maintained within $\SI{\pm 1}{\celsius}$ of $\SI{-123}{\celsius}$.
+
+\section{Method}
+Measurements of the voltage reflection coefficient were made according to procedure LMIT.E.063.005. 
+
+\clearpage    % Anticipate the page break
+\section{Results}
+ 
+
+% Although not used here, it is also possible to have a \subsubsection{}
+\subsection{Open (male), SN 54673}
+
+ \begin{center} % Centered horizontally on the page
+ 
+ % If the report text is wider, it is too wide for tables 
+ \begin{singlespace}
+ 
+ 	\small	% use a smaller font size for the table entries
+ 
+  	% Increases the vertical spacing between rows slightly  
+  	\setlength{\extrarowheight}{3pt}
+  
+	\[
+		% the 'S' array column type will align numbers on the decimal 
+        % Note 'S[group-minimum-digits=3]' or '\sisetup{group-minimum-digits=3 }'
+        % would be used to force a space separator every 3 digits (this
+        % does not happen by default until there more than 4 digits)
+  		\begin{array}{SSSSS}
+    		\multicolumn{1}{c}{ \text{frequency} } & 
+    		\multicolumn{2}{c}{ \text{magnitude} } &
+    		\multicolumn{2}{c}{ \text{phase} } 
+    		\\
+		% 2nd line 
+    		\multicolumn{1}{c}{ \si{(MHz)} } &  
+    		\multicolumn{2}{c}{ (\text{linear}) } &
+    		\multicolumn{2}{c}{ \text{(/degree)} } 
+    		\\
+  		% 3rd line 
+     		& {\rho} & {U(\rho)} & {\phi} & {U(\phi)} 
+     		\\ \hline % Underline the headings
+
+  		%%-----------------------------------------------
+  		% Data here
+		45 &   0.9998 &   0.0023$^\dagger$ &    -1.46 &     0.13     \\
+		50 &   0.9998 &   0.0023$^\dagger$ &    -1.62 &     0.13     \\
+		100 &   0.9999 &   0.0023$^\dagger$ &    -3.27 &     0.13    \\
+		300 &   0.9998 &   0.0025 &    -9.80 &     0.14    \\
+		500 &   0.9997 &   0.0026 &   -16.34 &     0.15    \\
+		1000 &   1.0000 &   0.0032 &   -32.72 &     0.18   \\
+		2000 &   0.9994 &   0.0054 &   -65.67 &     0.31  \\
+		3000 &    1.000 &    0.011 &   -98.66 &     0.62   \\
+		4000 &    0.999 &    0.013 &  -131.74 &     0.78   \\
+		5000 &    0.999 &    0.016 &  -164.77 &     0.90   \\
+		6000 &    0.998 &    0.017 &  +162.15 &     0.99   \\
+		7000 &    0.997 &    0.018 &   +129.0 &      1.1   \\
+		8000 &    0.997 &    0.018 &    +95.9 &      1.1   \\
+		9000 &    0.996 &    0.018 &    +62.7 &      1.1  \\
+		%%-----------------------------------------------
+		
+		\end{array}
+	\]
+	\LMICaption{figure}{fig1}{%
+	    Magnitude and phase data. Results are reported in polar coordinates 
+	    (magnitude, $\rho$, and phase, $\phi$), using a linear scale for magnitude
+	     and units of degrees for phase. For values decorated by a $\dagger$, see        
+	     the Uncertainty section.
+	}
+	
+\end{singlespace}
+\end{center}
+
+
+\section{Uncertainty}
+A coverage factor $k=1.96$ was used to calculate the expanded uncertainties $U(\cdot)$ at a level of confidence of approximately 95\%. The number of degrees of freedom associated with each measurement result was large enough to justify this coverage factor.  
+
+Some of the expanded uncertainty values reported fall outside LNI's current scope of accreditation. These values are decorated by a $\dagger$ in Figure~\ref{fig1}. The least expanded uncertainty for a magnitude measurement close to unity in the LNI scope of accreditation is currently 0.0024. 
+
+% A \paragraph is a lower hierarchy section. The 'heading' text is in bold
+% and the 'body' text follows on the same line.
+\paragraph{Note:} \referenceGUM	% Standard reference to the GUM
+
+\embedfile[mimetype=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet]{ex_data.xlsx}
+
+\end{document}
+{% endraw %}
+{% endhighlight %}
 {% include links.html %}
