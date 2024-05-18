@@ -1,6 +1,6 @@
 ---
 title: PDF/A-3 Documents
-last_updated: May 11, 2024
+last_updated: May 18, 2024
 summary: "Information about generating PDF/A-3 documents using LaTeX"
 permalink: dxfg-pdfa-tut.html
 toc: true
@@ -195,16 +195,16 @@ with Pdf.open('ex_xmp.pdf') as pdf:
 ```
 
 ## Calibration Reports in LaTeX
-The LaTeX approach to creating documents separates layout from content. In other words, the style and typesetting of a document are defined separately. 
-In this section, an example is presented that builds up a LaTeX style specification for calibration reports. 
+The LaTeX approach to creating documents separates layout from content: in other words, the style and typesetting of a document are defined separately. 
+This section presents an example of how to build up a LaTeX style specification for calibration reports. 
 
 It will help to take a look at the end result, so we have an idea of what we are working towards. 
-The final PDF/A file is available
- <a href="supplied\ex_report.pdf" target="_blank">here (opens a new tab)</a>---an `XLSX` spreadsheet with data is also embedded.
+A PDF/A file created using our style is available
+ <a href="supplied\ex_report.pdf" target="_blank">here (opens a new tab)</a>. The PDF file also has an `XLSX` spreadsheet embedded.
  
-The LaTeX file for the calibration report follows. 
-LaTeX commands 'mark-up' the text and other content in this report but that mark-up doesn't tell us about the document's final appearance. 
-The appearance is specified in a LaTeX style file called `LMIReport`.
+The LaTeX source file for the calibration report follows below. 
+This file contains 'mark-up' commands, text, and other content. 
+The appearance is specified in a LaTeX style file called `LMIReport`; the mark-up relates to the structure of the document. 
 {% highlight tex %}
 {% raw %}
 \DocumentMetadata{
@@ -325,9 +325,10 @@ The least expanded uncertainty for a measured magnitude close to unity in the LM
 {% endraw %}
 {% endhighlight %}
 
-### Markup commands and `LMIReport`
-The first few lines of the report file are essentially the same as those used in earlier examples. 
-The main difference is that the style file `LMIReport` is loaded by `\documentclass`.
+### LaTeX markup
+The first few lines of the report file are just like those used in earlier examples. 
+The main difference is that the style file `LMIReport` is loaded by `\documentclass` instead of `article`. 
+In fact, `LMIReport` specialises `article`, so many regular LaTeX commands are available, as well as a few special commands for the LMI reporting style.
 {% highlight tex %}
 {% raw %}
 \DocumentMetadata{
@@ -338,8 +339,8 @@ The main difference is that the style file `LMIReport` is loaded by `\documentcl
 {% endraw %}
 {% endhighlight %}
 
-The next few lines are macro commands defined in our style file. These capture information about that is presented in the report: its title, who did the work, etc. 
-These macros must be used before the main body of the document begins (with `\begin{document}`).
+The following few lines are macro commands defined in our style file. These capture information about the report: its title, who did the work, etc. 
+These macros must appear in the file before the main body of the document begins (with `\begin{document}`).
 {% highlight tex %}
 {% raw %}
 \Metrologist{Luke Skywalker}
@@ -352,15 +353,17 @@ These macros must be used before the main body of the document begins (with `\be
 {% endraw %}
 {% endhighlight %}
 
-A LaTeX document can be structured in sections, subsections, etc. The section titles are entered as a parameter to the sectioning command (e.g., `\section{Identification}`).
-Other features can be seen in the source file (such as the `\SI` macro used to display units), which are provided by standard LaTeX extensions (e.g., the [siunitx](https://ctan.org/pkg/siunitx) package) loaded by `LMIReport`.
+A LaTeX document is usually structured in terms of sections, subsections, etc. Section titles are specified as parameters to the sectioning commands (e.g., `\section{Identification}`).
 
-The report contains one table of measurement results. 
-Tables are relatively complicated, so we will describe this one in detail elsewhere. 
-Note that this table is not produced inside LaTeX's `\begin{table} ... \end{table}` environment, which would automatically place the table somewhere in the document. 
+Other commands in the file (such as the `\SI` macro used to display units) are provided by standard LaTeX packages (e.g., the [siunitx](https://ctan.org/pkg/siunitx) package), which are loaded by `LMIReport`.  
+
+The report has one table of measurement results. 
+Tables are relatively complicated to construct in LaTeX, so we will describe this one in detail later. 
+Note, however, that this table is not produced using LaTeX's `\begin{table} ... \end{table}` environment.
+That environment would allow LaTeX to automatically place the table in the document. 
 We prefer to retain control, so we created the table in-place. 
-A caption is added using the `\LMICaption` macro defined in `LMIReport`. 
-This also allows references to the figure to be made elsewhere in the text, by `\ref{fig1}`.
+The `\LMICaption` command is needed to add a table caption. 
+This command also allows references to the figure to be made elsewhere in the file, by `\ref{fig1}`.
 
 {% highlight tex %}
 {% raw %}
@@ -371,4 +374,29 @@ Expanded uncertainties decorated by a $\dagger$ fall outside the scope of accred
 {% endraw %}
 {% endhighlight %}
 
+Near the end of the document we see a short section defined by
+{% highlight tex %}
+{% raw %}
+\paragraph{Note:} \referenceGUM	% Standard reference to the GUM
+{% endraw %}
+{% endhighlight %}
+`\paragraph` is one of LaTeX's low-level sectioning commands. Here, it starts a section beginning **Note:**. 
+The following macro `\referenceGUM` expands, in the final PDF, to give text which refers to the GUM, including a hyperlink.
+
+The report will be produced with a copy of the data embedded as an XLSX file in the final PDF, as shown in an earlier example.
+{% highlight tex %}
+{% raw %}
+\embedfile[mimetype=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet]{ex_data.xlsx}
+
+\end{document}	
+{% endraw %}
+{% endhighlight %}
+
+### LaTeX Style
+To explain how the `LMIReport` style was developed, we will consider the first report page (title page) and the rest of the report body separately.
+We will also work directly with source files in which LaTeX packages are included one by one and commands are defined. 
+This is easier when developing a style, because it is quicker to make changes. 
+When we are satisfied with the style in our development versions, it can be converted into a LaTeX class for general use.
+
+* [Title style](dxfg-pdfa-tut-title-style)
 {% include links.html %}
