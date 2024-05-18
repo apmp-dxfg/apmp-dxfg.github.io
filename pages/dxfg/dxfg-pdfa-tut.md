@@ -194,12 +194,17 @@ with Pdf.open('ex_xmp.pdf') as pdf:
         print( ",".join( meta['dc:creator'] ) )
 ```
 
-## Creating Calibration Reports in LaTeX
-The LaTeX approach to creating documents tries to separate the specification of document layout from a document's content. In other words, the style and typesetting are separated from the text, figures, tables, etc. 
-This section will go step-by-step through an example where we will build up a LaTeX style specification for calibration reports from a fictitious NMI. 
+## Calibration Reports in LaTeX
+The LaTeX approach to creating documents separates layout from content. In other words, the style and typesetting of a document are defined separately. 
+In this section, an example is presented that builds up a LaTeX style specification for calibration reports. 
 
-Before we begin, it will help to take a look at the final result. So, we have an idea of what we are working towards. Here is a source file for a calibration that uses the LaTeX style we will create (the style, or class, is called `LMIReport`). We see that there are LaTeX commands that 'mark-up' the text and other content, but that mark-up doesn't tell us about the document appearance. The PDF/A file created from this source is available []()
- <a href="supplied\ex_report.pdf" target="_blank">here (opens a new tab)</a>---an `XLSX` spreadsheet with data is also embedded in the report.
+It will help to take a look at the end result, so we have an idea of what we are working towards. 
+The final PDF/A file is available
+ <a href="supplied\ex_report.pdf" target="_blank">here (opens a new tab)</a>---an `XLSX` spreadsheet with data is also embedded.
+ 
+The LaTeX file for the calibration report follows. 
+LaTeX commands 'mark-up' the text and other content in this report but that mark-up doesn't tell us about the document's final appearance. 
+The appearance is specified in a LaTeX style file called `LMIReport`.
 {% highlight tex %}
 {% raw %}
 \DocumentMetadata{
@@ -229,10 +234,10 @@ The component serial number is 2221X.
 United Spacecraft Corporation, 51 Mare Tranquillitatis, The Moon.
 
 \section{Date of Calibration}
-The measurements were performed on the 7$^\mathrm{th}$ of February 2035.
+The measurements were performed on February 7\textsuperscript{th}, 2035.
 
 \section{Conditions}
-Ambient temperature was maintained within $\SI{\pm 1}{\celsius}$ of $\SI{-123}{\celsius}$.
+Ambient temperature was maintained within \SI{\pm 1}{\celsius} of \SI{-123}{\celsius}.
 
 \section{Method}
 Measurements of the voltage reflection coefficient were made according to procedure LMIT.E.063.005. 
@@ -254,8 +259,8 @@ Measurements of the voltage reflection coefficient were made according to proced
   	% Increases the vertical spacing between rows slightly  
   	\setlength{\extrarowheight}{3pt}
   
-	\[
-		% the 'S' array column type will align numbers on the decimal 
+    \[
+        % the 'S' array column type will align numbers on the decimal 
         % Note 'S[group-minimum-digits=3]' or '\sisetup{group-minimum-digits=3 }'
         % would be used to force a space separator every 3 digits (this
         % does not happen by default until there more than 4 digits)
@@ -265,9 +270,9 @@ Measurements of the voltage reflection coefficient were made according to proced
     		\multicolumn{2}{c}{ \text{phase} } 
     		\\
 		% 2nd line 
-    		\multicolumn{1}{c}{ \si{(MHz)} } &  
-    		\multicolumn{2}{c}{ (\text{linear}) } &
-    		\multicolumn{2}{c}{ \text{(/degree)} } 
+    		\multicolumn{1}{c}{ (/\si{\mega\hertz}) } &  
+    		\multicolumn{2}{c}{  } &
+    		\multicolumn{2}{c}{ (/\si{\degree}) } 
     		\\
   		% 3rd line 
      		& {\rho} & {U(\rho)} & {\phi} & {U(\phi)} 
@@ -294,20 +299,21 @@ Measurements of the voltage reflection coefficient were made according to proced
 		\end{array}
 	\]
 	\LMICaption{figure}{fig1}{%
-	    Magnitude and phase data. Results are reported in polar coordinates 
-	    (magnitude, $\rho$, and phase, $\phi$), using a linear scale for magnitude
-	     and units of degrees for phase. For values decorated by a $\dagger$, see        
-	     the Uncertainty section.
-	}
+Magnitude and phase data, using a linear scale for magnitude and units of degrees for phase. 
+Expanded uncertainties decorated by a $\dagger$ fall outside the scope of accreditation (see Uncertainty section).
+}
 	
 \end{singlespace}
 \end{center}
 
 
 \section{Uncertainty}
-A coverage factor $k=1.96$ was used to calculate the expanded uncertainties $U(\cdot)$ at a level of confidence of approximately 95\%. The number of degrees of freedom associated with each measurement result was large enough to justify this coverage factor.  
+A coverage factor $k=1.96$ was used to calculate the expanded uncertainties $U(\cdot)$ at a level of confidence of approximately \SI{95}{\percent}. 
+The number of degrees of freedom associated with each measurement result was large enough to justify this coverage factor.  
 
-Some of the expanded uncertainty values reported fall outside LNI's current scope of accreditation. These values are decorated by a $\dagger$ in Figure~\ref{fig1}. The least expanded uncertainty for a magnitude measurement close to unity in the LNI scope of accreditation is currently 0.0024. 
+Some of the expanded uncertainty values reported fall outside LMI's current scope of accreditation. 
+These values are decorated by a $\dagger$ in Figure~\ref{fig1}. 
+The least expanded uncertainty for a measured magnitude close to unity in the LMI scope of accreditation is currently 0.0024. 
 
 % A \paragraph is a lower hierarchy section. The 'heading' text is in bold
 % and the 'body' text follows on the same line.
@@ -318,4 +324,51 @@ Some of the expanded uncertainty values reported fall outside LNI's current scop
 \end{document}
 {% endraw %}
 {% endhighlight %}
+
+### Markup commands and `LMIReport`
+The first few lines of the report file are essentially the same as those used in earlier examples. 
+The main difference is that the style file `LMIReport` is loaded by `\documentclass`.
+{% highlight tex %}
+{% raw %}
+\DocumentMetadata{
+    pdfversion=1.7,
+    pdfstandard=A-3b,
+}
+\documentclass[11pt,a4paper]{LMIReport}
+{% endraw %}
+{% endhighlight %}
+
+The next few lines are macro commands defined in our style file. These capture information about that is presented in the report: its title, who did the work, etc. 
+These macros must be used before the main body of the document begins (with `\begin{document}`).
+{% highlight tex %}
+{% raw %}
+\Metrologist{Luke Skywalker}
+\ChiefMetrologist{Princess Leia Organa}
+\ReportNumber{12345} 
+\ReportTitle{A report on the calibration of an type-N male open}
+\date{17 May 2035}
+
+\begin{document}	
+{% endraw %}
+{% endhighlight %}
+
+A LaTeX document can be structured in sections, subsections, etc. The section titles are entered as a parameter to the sectioning command (e.g., `\section{Identification}`).
+Other features can be seen in the source file (such as the `\SI` macro used to display units), which are provided by standard LaTeX extensions (e.g., the [siunitx](https://ctan.org/pkg/siunitx) package) loaded by `LMIReport`.
+
+The report contains one table of measurement results. 
+Tables are relatively complicated, so we will describe this one in detail elsewhere. 
+Note that this table is not produced inside LaTeX's `\begin{table} ... \end{table}` environment, which would automatically place the table somewhere in the document. 
+We prefer to retain control, so we created the table in-place. 
+A caption is added using the `\LMICaption` macro defined in `LMIReport`. 
+This also allows references to the figure to be made elsewhere in the text, by `\ref{fig1}`.
+
+{% highlight tex %}
+{% raw %}
+\LMICaption{figure}{fig1}{%
+Magnitude and phase data, using a linear scale for magnitude and units of degrees for phase. 
+Expanded uncertainties decorated by a $\dagger$ fall outside the scope of accreditation (see Uncertainty section).
+}	
+{% endraw %}
+{% endhighlight %}
+
 {% include links.html %}
