@@ -1,7 +1,7 @@
 ---
-title: PDF/A-3 Documents
+title: Title Page Style
 last_updated: May 18, 2024
-summary: "The First Report Page"
+summary: "LaTeX specification of the title page style for Lunar Metrology Institute reports is explained"
 permalink: dxfg-pdfa-tut-title-style.html
 toc: true
 mathjax: true
@@ -9,7 +9,10 @@ layout: page
 ---
 {% include important.html content="This page is currently being written and has not yet been reviewed" %}
 
-## Title Page Style 
+## Title Page Style
+
+We explain how the appearance of the title page for Lunar Metrology Institute reports is created in LaTeX. 
+
 ### Artwork
 The first page of calibration reports usually contains logo images and often too some text that never changes. 
 The design of this cover artwork is often handled by someone with computer graphics skills. 
@@ -19,7 +22,12 @@ For this example, we created artwork for a title page using [LibreOffice Writer]
 Our background <a href="supplied\LMI_cover.pdf" target="_blank">artwork (opens a new tab)</a> was exported from LibreWriter in PDF/A format.  
 
 ### Page Style
-A LaTeX file that places details about a calibration report over background artwork is shown below. 
+Here is a complete LaTeX file that places details about a calibration report over background artwork is shown below. 
+We explain the different parts of this code underneath.
+
+Note, `\maketitlepage` is the only command in the body of this LaTeX document. 
+Everything hat comes before `\begin{document}` in a LaTeX file is called the 'preamble'. This is where commands and macros are defined, and public LaTeX packages are imported that provide particular functions and features. 
+The preamble of our file is where the appearance of the title page is configured.
 
 {% highlight latex %}
 {% raw %}
@@ -122,30 +130,30 @@ A LaTeX file that places details about a calibration report over background artw
 \end{document}
 {% endraw %}
 {% endhighlight %}
-Note, the body of this LaTeX document consists of just one command: `\maketitlepage`. 
-Everything before `\begin{document}` is called the LaTeX 'preamble' and is where commands and macros are defined, and public LaTeX packages are imported to provide particular functions and features. 
-The preamble of this file is where we configure the appearance of the title page.
 
 #### Page dimensions
-Public LaTeX packages[^1] are imported with the `\usepackage` command. Package options may be specified as keywords or key-value pairs. For example,
+Public LaTeX packages[^1] are imported using the `\usepackage` command. 
+Package options may be specified as keywords or key-value pairs. 
+For example, the following lines import the `geometry` package and specify options that set a particular headheight, and the margins on all sides. 
 ```tex
 \usepackage[
     a4paper,
     headheight=30pt,
     margin=25mm]{geometry}
 ``` 
-This imports the `geometry` package with options that specify a particular headheight, and the margins on all sides. 
 
-#### Handling background
-The next packages are needed to manage the background artwork
+#### Background artwork handling 
+The packages needed to manage the background artwork are import next
 ```tex
 \usepackage{pdfpages}
 \usepackage{eso-pic}
 ```
 
-#### Fonts
-LaTeX fonts work in a different way from desktop word processing applications. 
-The next packages work together to provide the Helvetica font family, with the STIX package giving high quality math symbols. 
+#### Helvetica font
+LaTeX fonts are handled in a different way from desktop word-processing applications. 
+The topic of fonts in LaTeX is a complicated one. 
+For the Lunar Metrology Institute style, we would like to use the Helvetica font family, which closely resemble the commercial Arial fonts.
+The next packages work together to provide Helvetica in conjunction with the STIX LaTeX package that produces high quality symbols for mathematics. 
 ```tex
 \usepackage[T1]{fontenc}
 \usepackage[scaled]{helvet}
@@ -153,7 +161,8 @@ The next packages work together to provide the Helvetica font family, with the S
 ```  
 
 #### Report detail macros
-We have already seen a collection of macro commands that collect information about a report. These are defined by
+We have already seen a collection of macro commands that collect information about a report. 
+These are defined by
 ```tex
 \usepackage{xspace}
 
@@ -166,11 +175,13 @@ We have already seen a collection of macro commands that collect information abo
 \newcommand{\ChiefMetrologist}[1]{\renewcommand{\ChiefMetrologist}{#1}}
 \makeatother
 ```
-The `\makeatletter` and `\makeatother` are needed because we are defining these commands in the preamble of the source document (the `@` character is reserved). 
-These commands mostly follow the same simple pattern. 
-They take an argument the first time they are used, but thereafter they behave as macros that expand to provide the initial argument. 
+The `\makeatletter` and `\makeatother` are needed because the `@` character is reserved in LaTeX source file. 
+We need prevent LaTeX from complaining when we access the internally defined macro `\@date`.
+
+Several of these commands shown follow a simple pattern. 
+The first time they are used they take an argument but thereafter they expand to provide this argument. 
 We use these macros to fill some fields in the title page.
-For example, the `\MetrologyTeam` command uses the `\Metrologist` and `\ChiefMetrologist` commands
+For example, the `\MetrologyTeam` command uses the values in `\Metrologist` and `\ChiefMetrologist`
 ```tex
 \newcommand{\MetrologyTeam}{
            \Metrologist \\
@@ -178,8 +189,8 @@ For example, the `\MetrologyTeam` command uses the `\Metrologist` and `\ChiefMet
 }
 ```
 
-### Assembling the page
-The `\maketitlepage` command assembles all the different elements of the title. 
+### Assembling the title page
+The `\maketitlepage` command assembles the different elements of the title page. 
 {% highlight tex %}
 {% raw %}
 \newcommand{\maketitlepage}{%
@@ -223,9 +234,10 @@ The `\maketitlepage` command assembles all the different elements of the title.
 {% endhighlight %}
 
 #### Header, footer and page numbers
-`\thispagestyle{empty}` sets the LaTeX style to a blank page with no automatic header, footer, or page numbering.
-The next command `\thispageof` writes the page number and the total number of pages in the top left of the page body.
-The `\thispageof` command is defined by
+`\thispagestyle{empty}` sets up a blank page with no automatic header, footer, or page numbering.
+
+The command `\thispageof` generates text showing the page number and the total number of pages. 
+This will appear in the top left of the title page.
 ```tex
 \usepackage{lastpage}       
 \newcommand{\thispageof}{Page~\thepage~of~\pageref*{LastPage}}
@@ -240,7 +252,7 @@ The report title is placed on the page by
 A vertical space of 5 cm is introduced and then `\ReportTitle` is set in the `\huge` font size (about 19 pt).
 
 #### Report number and date
-Another space is introduced before the report number and date are written in `\LARGE` font (about 16 pt) by
+The report number and date are written one line below the title, in `\LARGE` font (about 16 pt), 
 ```tex
 \vspace{\baselineskip}
 \textbf{\LARGE \ReportReference}
@@ -249,7 +261,7 @@ Another space is introduced before the report number and date are written in `\L
 ```
  
 #### The people involved
-The people involved in making the report are displayed by 
+The key people involved in issuing the report are displayed by 
 ```tex
 \begin{minipage}{\textwidth}
 \begin{tabbing}
@@ -260,7 +272,7 @@ The people involved in making the report are displayed by
 ```
 
 #### Loading the background
-Finally, the background is loaded the page is finished (a new page is started by `\clearpage`)
+Finally, the background artwork is loaded the page is finalised (a new page is started by `\clearpage`)
 ```tex {% raw %}
     \vfill
     

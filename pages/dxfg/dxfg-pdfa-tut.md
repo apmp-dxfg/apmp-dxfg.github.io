@@ -399,4 +399,5 @@ This is easier when developing a style, because it is quicker to make changes.
 When we are satisfied with the style in our development versions, it can be converted into a LaTeX class for general use.
 
 * [Title style](dxfg-pdfa-tut-title-style)
+* [Body style](dxfg-pdfa-tut-body-style)
 {% include links.html %}
