@@ -236,27 +236,27 @@ The report title is placed on the page by
 ```tex
 \vspace*{50mm}
 \textbf{\huge \ReportTitle}\\
- ```
- A vertical space of 5 cm is introduced and then `\ReportTitle` is set in the `\huge` font size (about 19 pt).
+```
+A vertical space of 5 cm is introduced and then `\ReportTitle` is set in the `\huge` font size (about 19 pt).
+
+#### Report number and date
+Another space is introduced before the report number and date are written in `\LARGE` font (about 16 pt) by
+```tex
+\vspace{\baselineskip}
+\textbf{\LARGE \ReportReference}
  
- #### Report number and date
- Another space is introduced before the report number and date are written in `\LARGE` font (about 16 pt) by
- ```tex
- \vspace{\baselineskip}
- \textbf{\LARGE \ReportReference}
+\vspace{\baselineskip}
+```
  
- \vspace{\baselineskip}
- ```
- 
- #### The people involved
- The people involved in making the report are displayed by 
- ```tex
- \begin{minipage}{\textwidth}
-    \begin{tabbing}
-        \textbf{Prepared by:}\hspace{5mm} \= 
-        \MetrologyTeam
-    \end{tabbing}   
-    \end{minipage}
+#### The people involved
+The people involved in making the report are displayed by 
+```tex
+\begin{minipage}{\textwidth}
+\begin{tabbing}
+    \textbf{Prepared by:}\hspace{5mm} \= 
+    \MetrologyTeam
+\end{tabbing}   
+\end{minipage}
 ```
 
 #### Loading the background
