@@ -247,6 +247,7 @@ The report title is placed on the page by
  
  \vspace{\baselineskip}
  ```
+ 
  #### The people involved
  The people involved in making the report are displayed by 
  ```tex
@@ -257,6 +258,7 @@ The report title is placed on the page by
     \end{tabbing}   
     \end{minipage}
 ```
+
 #### Loading the background
 Finally, the background is loaded the page is finished (a new page is started by `\clearpage`)
 ```tex {% raw %}
