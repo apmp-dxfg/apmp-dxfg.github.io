@@ -1,5 +1,5 @@
 ---
-title: PDF/A-3 Documents
+title: PDF/A-3 Documents from LaTeX
 last_updated: May 18, 2024
 summary: "Information about generating PDF/A-3 documents using LaTeX"
 permalink: dxfg-pdfa-tut.html
@@ -10,34 +10,42 @@ layout: page
 {% include important.html content="This page is currently being written and has not yet been reviewed" %}
 
 ## Preliminaries
-The PDF/A-3 file format offers a way to produce human-readable documents which can also contain machine-readable documents. So, PDF/A formats can be used by calibration laboratories to tailor reports to the needs of customers. Using PDF/A-3 file formats can deliver readable metrological documents (i.e., PDF reader software can display the document) with digital files embedded. 
+PDF/A-3 file formats can deliver human-readable metrological documents (i.e., PDF reader software can display the document) with digital files embedded. 
+So, PDF/A formats could be used by calibration laboratories to tailor reports to the needs of their customers. 
 
-The suggestion to use PDF/A-3 formats for reporting metrological data was first made by [METAS](https://doi.org/10.1016/j.measen.2021.100282). A proof-of-concept package is published on [github](https://github.com/metas-ch/metas-ecertificate), which uses open-source tools to create PDF/A files---notably the LaTeX system for typesetting documents. However, more recent developments have improved LaTeX system support for generating PDF files.
+The suggestion to use PDF/A-3 formats for reporting metrological data was first made by [METAS](https://doi.org/10.1016/j.measen.2021.100282){:target="_blank"}. 
+A proof-of-concept package is available on [github](https://github.com/metas-ch/metas-ecertificate){:target="_blank"}, which uses open-source tools to create PDF/A files---the LaTeX system for typesetting documents. 
+However, recent developments have improved LaTeX system support for generating PDF files.
 
-Since 2020, LaTeX has embarked on a multi-year [development project](https://pdfa.org/presentation/tagged-and-accessible-pdf-with-latex/) to produce tagged and accessible PDF from existing LaTeX source files with no or only minimal configuration adjustments.  This project has simplified the generation of PDF/A-3 documents. In the longer term, PDF files produced using LaTeX will contain rich semantic machine-readable content, which is an exciting long-term prospect for digital transformation in metrology.
+Since 2020, the group who maintains LaTeX embarked on a multi-year [development project](https://pdfa.org/presentation/tagged-and-accessible-pdf-with-latex/){:target="_blank"} to produce tagged and accessible PDF from existing LaTeX source files with no or only minimal configuration adjustments.  
+This project has simplified the generation of PDF/A-3 documents. 
+In the longer term, PDF files produced using LaTeX will contain rich semantic machine-readable content, which is an exciting long-term prospect for digital transformation in metrology.
  
-In these pages, the DXFG is making information and examples available to help members develop PDF/A capabilities tailored to the needs of their customers. A [github repository](https://github.com/apmp-dxfg/pdfa3-documents) of associated files is also provided. 
+In these pages, the DXFG is making information and examples available to help DXFG members develop PDF/A reporting capabilities. 
+A [github repository](https://github.com/apmp-dxfg/pdfa3-documents){:target="_blank"} of associated files provides copies of the files referred to here. 
 
 ## Resources
 
 A [LaTeX](latex-res.html) page has information about LaTeX software for producing PDF/A-3 documents.
 
-Independent software is needed to validate PDF/A-3 documents against the official PDF [ISO standard](https://pdfa.org/resource/iso-19005-pdfa/). We use the [veraPDF](https://verapdf.org/home/) *Implementation Checker* tool to validate documents.
+Independent software is needed to validate PDF/A-3 documents against the official PDF [ISO standard](https://pdfa.org/resource/iso-19005-pdfa/){:target="_blank"}. 
+We use the [veraPDF](https://verapdf.org/home/){:target="_blank"} *Implementation Checker* tool to validate documents.
 
-Files embedded in a PDF/A-3 document can be extracted by hand using any of the popular PDF reader applications or automatically using software. We use the Python package [pypdf](https://pypi.org/project/pypdf/) to extract files in the examples below, but there are other Python packages that may also be considered, such as [pikepdf](https://pypi.org/project/pikepdf/).
+Files embedded in a PDF/A-3 document can be extracted by hand using any of the popular PDF reader applications or automatically using software. 
+We use the Python package [pypdf](https://pypi.org/project/pypdf/){:target="_blank"} to extract files in the examples below, but there are other Python packages that may also be considered, such as [pikepdf](https://pypi.org/project/pikepdf/){:target="_blank"}.
 
 ## Examples
 
 ### Embedding a text file
 
-This example produces a PDF/A-3 file with an embedded text file, called `attachme.txt` (files shown are available in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents)). 
+Here is an example that produces a PDF/A-3 file with an embedded text file (files shown are available in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/minimal){:target="_blank"}). 
 
-The contents of `attachme.txt` is just one line:
-```
+The contents of the embedded text file is just one line:
+```txt
 This file will be attached to a PDF document
 ``` 
 
-A LaTeX file (`ex.tex`) is used to create the output, `ex.pdf`:
+A LaTeX source file (`ex.tex`) is used to create the output, `ex.pdf`:
 ```tex
 \DocumentMetadata{
     pdfversion=1.7,
@@ -61,17 +69,19 @@ A text file, \texttt{attachme.txt}, is embedded in the PDF document.
 \embedfile{attachme.txt}
 
 \end{document}
+
 ```
 The output `ex.pdf` is generated by `pdflatex` on the comand line, like this:
 ```
 > pdflatex ex.tex
 ```
 
-In the LaTeX source file, the `\DocumentMetadata` command activates new features of LaTeX. This command must come before `\documentclass`. 
+The `\DocumentMetadata` command must come before `\documentclass` in the LaTeX source file. 
+It activates the new features of LaTeX. 
 
 Files are embedded using the command `\embedfile` from the `embedfile` package.  
 
-The veraPDF checker can be used to confirm that the PDF file produced complies with the PDF/A-3b standard.
+VeraPDF checker can be used to verify that the PDF file produced complies with the PDF/A-3b standard.
 
 The Python package `pypdf` can extract the contents of the embedded file `attachme.txt`:
 ```py
@@ -92,7 +102,8 @@ for file_name, content_list in attached.items():
 ``` 
 
 ### Embedding a spreadsheet
-This example produces a PDF/A file with an embeded spreadsheet. The LaTeX file for this example is `ex_xlsx.tex`, in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents)). 
+This example produces a PDF/A file with an embedded spreadsheet. 
+The LaTeX file for this example is `ex_xlsx.tex`, in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/minimal){:target="_blank"}). 
 
 Here is the LaTeX source code:
 ```tex
@@ -153,9 +164,10 @@ for file_name, content_list in attached.items():
 ```
 
 ### XMP metadata
-Adobe allows XML metadata to be included in a PDF file. This is known as [XMP metadata](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform).  
+Adobe allows XML metadata to be included in a PDF file. 
+This is known as [XMP metadata](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform){:target="_blank"}.  
 
-Here is an example where the title and author are recorded as metadata (a complete list of supported metadata is given in the [hyperref](http://mirrors.ctan.org/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf)) package documentation. 
+Here is an example where the title and author are recorded as metadata (a complete list of supported metadata is given in the [hyperref](http://mirrors.ctan.org/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf){:target="_blank"}) package documentation. 
 ```tex
 \DocumentMetadata{
     pdfversion=1.7,
@@ -175,7 +187,10 @@ You can check that this PDF document complies with the PDF/A-3b standard by usin
 \end{document}
 ``` 
 
-XMP metadata is intended to be read by machines. For example, PDF reader software is often able to display the metadata although it is primarily intended to facilitate sharing and transfer of files across products, vendors, platforms, without metadata getting lost. There are Python packages that can access the XMP data. The `pypdf` package used earlier makes a few elements accessible as Python attributes, as shown below, but access to the all XMP data is more complicated. 
+XMP metadata is intended to be read by machines. 
+For example, PDF reader software is often able to display the metadata although it is primarily intended to facilitate sharing and transfer of files across products, vendors, platforms, without metadata getting lost. 
+There are Python packages that can access the XMP data. 
+The `pypdf` package used earlier makes a few elements accessible as Python attributes, as shown below, but access to the all XMP data is more complicated. 
 ```py
 from pypdf import PdfReader
 
@@ -184,7 +199,7 @@ meta = PdfReader("ex_xmp.pdf").xmp_metadata
 print( meta.dc_title['x-default'] )
 print( ",".join( meta.dc_creator ) )
 ```
-Another package that can access XMP data is [pikepdf](https://pypi.org/project/pikepdf/), shown in this code snippet
+Another package that can access XMP data is [pikepdf](https://pypi.org/project/pikepdf/){:target="_blank"}, shown in this code snippet
 ```py
 from pikepdf import Pdf
 
@@ -199,8 +214,8 @@ The LaTeX approach to creating documents separates layout from content: in other
 This section presents an example of how to build up a LaTeX style specification for calibration reports. 
 
 It will help to take a look at the end result, so we have an idea of what we are working towards. 
-A PDF/A file created using our style is available
- <a href="supplied\ex_report.pdf" target="_blank">here (opens a new tab)</a>. The PDF file also has an `XLSX` spreadsheet embedded.
+A PDF/A file created using our style is available [here](supplied\ex_report.pdf){:target="_blank"}. 
+The PDF file also has an `XLSX` spreadsheet embedded.
  
 The LaTeX source file for the calibration report follows below. 
 This file contains 'mark-up' commands, text, and other content. 
@@ -355,7 +370,7 @@ These macros must appear in the file before the main body of the document begins
 
 A LaTeX document is usually structured in terms of sections, subsections, etc. Section titles are specified as parameters to the sectioning commands (e.g., `\section{Identification}`).
 
-Other commands in the file (such as the `\SI` macro used to display units) are provided by standard LaTeX packages (e.g., the [siunitx](https://ctan.org/pkg/siunitx) package), which are loaded by `LMIReport`.  
+Other commands in the file (such as the `\SI` macro used to display units) are provided by standard LaTeX packages (e.g., the [siunitx](https://ctan.org/pkg/siunitx){:target="_blank"} package), which are loaded by `LMIReport`.  
 
 The report has one table of measurement results. 
 Tables are relatively complicated to construct in LaTeX, so we will describe this one in detail later. 
@@ -392,12 +407,14 @@ The report will be produced with a copy of the data embedded as an XLSX file in 
 {% endraw %}
 {% endhighlight %}
 
-### LaTeX Style
-To explain how the `LMIReport` style was developed, we will consider the first report page (title page) and the rest of the report body separately.
-We will also work directly with source files in which LaTeX packages are included one by one and commands are defined. 
-This is easier when developing a style, because it is quicker to make changes. 
-When we are satisfied with the style in our development versions, it can be converted into a LaTeX class for general use.
+### LaTeX Style Development
+To explain how the `LMIReport` style has been developed, we consider the title page and the report body separately.
+We will show the development using source files in which LaTeX packages are included and commands are defined. 
+This approach is convenient when developing or modifying a style, because changes can be made in the file being processed. 
+Once we are satisfied with the style, it can be converted into a LaTeX class for general use.
 
 * [Title style](dxfg-pdfa-tut-title-style)
 * [Body style](dxfg-pdfa-tut-body-style)
+* [`LMIReport.cls` LaTeX class](dxfg-pdfa-tut-report-style)
+
 {% include links.html %}

@@ -1,5 +1,5 @@
 ---
-title: Title Page Style
+title: Title Page Style Development
 last_updated: May 18, 2024
 summary: "LaTeX specification of the title page style for Lunar Metrology Institute reports is explained"
 permalink: dxfg-pdfa-tut-title-style.html
@@ -18,8 +18,8 @@ The first page of calibration reports usually contains logo images and often too
 The design of this cover artwork is often handled by someone with computer graphics skills. 
 Details about the report itself (title, date, etc.) are printed on the first page with this artwork in the background. 
 
-For this example, we created artwork for a title page using [LibreOffice Writer](https://www.libreoffice.org/). 
-Our background <a href="supplied\LMI_cover.pdf" target="_blank">artwork (opens a new tab)</a> was exported from LibreWriter in PDF/A format.  
+For this example, we created artwork for a title page using [LibreOffice Writer](https://www.libreoffice.org/){:target="_blank"}. 
+Our background [artwork](supplied/LMI_cover.pdf){:target="_blank"} was exported from LibreWriter in PDF/A format.  
 
 ### Page Style
 Here is a complete LaTeX file that places details about a calibration report over background artwork is shown below. 
@@ -287,6 +287,6 @@ Finally, the background artwork is loaded the page is finalised (a new page is s
     \clearpage
 {% endraw %} ```
 
-[^1]: LaTeX packages are available on the Comprehensive TeX Archive Network [CTAN](https://ctan.org/). Documentation for every package can be found there. 
+[^1]: LaTeX packages are available on the Comprehensive TeX Archive Network [CTAN](https://ctan.org/){:target="_blank"}. Documentation for every package can be found there. 
 
 {% include links.html %}

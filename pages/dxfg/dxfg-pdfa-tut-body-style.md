@@ -1,5 +1,5 @@
 ---
-title: Report Body Style
+title: Report Body Style Development
 last_updated: May 18, 2024
 summary: "LaTeX specification of the style used for the body of Lunar Metrology Institute reports is explained"
 permalink: dxfg-pdfa-tut-body-style.html
@@ -521,6 +521,6 @@ The table is completed by closing the array and maths environments.
 \end{array}
 \]
 ```
-[^1]: LaTeX packages are available on the Comprehensive TeX Archive Network [CTAN](https://ctan.org/). Documentation for every package can be found there. 
+[^1]: LaTeX packages are available on the Comprehensive TeX Archive Network [CTAN](https://ctan.org/){:target="_blank"}. Documentation for every package can be found there. 
 
 {% include links.html %}
