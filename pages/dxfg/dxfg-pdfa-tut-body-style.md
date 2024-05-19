@@ -13,7 +13,7 @@ layout: page
 
 We explain how the appearance of material in the body of Lunar Metrology Institute reports is controlled in LaTeX. 
 
-### Page style in the preamble 
+### LaTeX file for report body
 
 Here is a LaTeX file with commands that specify appearance and some content, which will be presented in the report.
 Appearance is specified in the preamble of a LaTeX file (before `\begin{document}`).
@@ -51,8 +51,15 @@ We explain the other details below.
 \usepackage{amsmath}
 \usepackage{siunitx}
 
-%% To make captions without using LaFeX figure or table environments 
+%% Make captions without using LaTeX floating figure or table environments 
 \usepackage{capt-of}
+\newcommand{\LMICaption}[3]{
+    \begin{minipage}{.8\textwidth}        
+        \captionof{#1}{\small #3}
+        \label{#2}     
+    \end{minipage}
+    \vspace{.5\baselineskip}
+}
 
 %% For including images
 \usepackage{graphicx}
@@ -71,9 +78,9 @@ We explain the other details below.
 \usepackage{lastpage}       
 \newcommand{\thispageof}{Page~\thepage~of~\pageref*{LastPage}}
 
-%% Fine control of line spacing 
+ 
 \usepackage{parskip}        % Paragraph formatting
-\usepackage{setspace}
+\usepackage{setspace}       % Control of line spacing
 
 \usepackage{hyperref}
 \hypersetup{
@@ -180,10 +187,9 @@ A PDF version is available on-line:
 \pagestyle{fancy}
 \raggedright        % Does not adjust the right margin
 	
-% Possible section headings: Description, Identification, Client
-% Reference, Date(s) of Calibration (of Test), Objective
-% Method, Conditions, Notes, Results, Uncertainty, Conclusion
-%
+\vspace*{4\baselineskip}
+\textbf{\LARGE\ReportTitle}    
+	
 \section{Description}
 The components are from a USC vector network analyser calibration kit model 8599. 
 
@@ -194,90 +200,88 @@ The component serial number is 2221X.
 United Spacecraft Corporation, 51 Mare Tranquillitatis, The Moon.
 
 \section{Date of Calibration}
-The measurements were performed on the 7$^\mathrm{th}$ of February 2025.
+The measurements were performed on February 7\textsuperscript{th}, 2035.
 
 \section{Conditions}
-Ambient temperature was maintained within $\SI{\pm 1}{\celsius}$ of $\SI{-123}{\celsius}$.
+Ambient temperature was maintained within \SI{\pm 1}{\celsius} of \SI{-123}{\celsius}.
 
 \section{Method}
 Measurements of the voltage reflection coefficient were made according to procedure LMIT.E.063.005. 
 
+\clearpage    % Anticipate the page break
 \section{Results}
-Results in fig~\ref{fig1} are reported in polar coordinates (magnitude, $\rho$, and phase, $\phi$), using a linear scale for magnitude and units of degrees for phase. 
 
 % Although not used here, it is also possible to have a \subsubsection{}
 \subsection{Open (male), SN 54673}
 
- \begin{center} % Centered horizontally on the page
- 
- % The report text has 1.5 line spacing, 
- % but that is too wide for tables 
- \begin{singlespace}
- 
- 	\small	% use a smaller font size for the table entries
+\begin{center} 
+\begin{singlespace}
+ 	\small	% smaller font size for the table entries
  
   	% Increases the vertical spacing between rows slightly  
   	\setlength{\extrarowheight}{3pt}
   
 	\[
-		% the 'S' array column type will align numbers on the decimal 
-        % Note 'S[group-minimum-digits=3]' or '\sisetup{group-minimum-digits=3 }'
-        % would be used to force a space separator every 3 digits (this
-        % does not happen by default until there more than 4 digits)
-  		\begin{array}{SSSSS}
-    		\multicolumn{1}{c}{ \text{frequency} } & 
-    		\multicolumn{2}{c}{ \text{magnitude} } &
-    		\multicolumn{2}{c}{ \text{phase} } 
-    		\\
-		% 2nd line 
-    		\multicolumn{1}{c}{ \si{(MHz)} } &  
-    		\multicolumn{2}{c}{ (\text{linear}) } &
-    		\multicolumn{2}{c}{ \text{(/degree)} }  
-    		\\
-  		% 3rd line 
-     		& {\rho} & {U(\rho)} & {\phi} & {U(\phi)} 
-     		\\ \hline % Underline the headings
+    \begin{array}{SSSSS}
+        \multicolumn{1}{c}{ \text{frequency} } & 
+        \multicolumn{2}{c}{ \text{magnitude} } &
+        \multicolumn{2}{c}{ \text{phase} } 
+        \\
+        % 2nd line 
+        \multicolumn{1}{c}{ (/\si{\mega\hertz}) } &  
+        \multicolumn{2}{c}{  } &
+        \multicolumn{2}{c}{ (/\si{\degree}) } 
+        \\
+        % 3rd line 
+        & {\rho} & {U(\rho)} & {\phi} & {U(\phi)} 
+        \\ \hline % Underline the headings
 
-  		%%-----------------------------------------------
-  		% Data here
-		45 &   0.9998 &   0.0023$^\dagger$ &    -1.46 &     0.13     \\
-		50 &   0.9998 &   0.0023$^\dagger$ &    -1.62 &     0.13     \\
-		100 &   0.9999 &   0.0023$^\dagger$ &    -3.27 &     0.13    \\
-		300 &   0.9998 &   0.0025 &    -9.80 &     0.14    \\
-		500 &   0.9997 &   0.0026 &   -16.34 &     0.15    \\
-		1000 &   1.0000 &   0.0032 &   -32.72 &     0.18   \\
-		2000 &   0.9994 &   0.0054 &   -65.67 &     0.31  \\
-		3000 &    1.000 &    0.011 &   -98.66 &     0.62   \\
-		4000 &    0.999 &    0.013 &  -131.74 &     0.78   \\
-		5000 &    0.999 &    0.016 &  -164.77 &     0.90   \\
-		6000 &    0.998 &    0.017 &  +162.15 &     0.99   \\
-		7000 &    0.997 &    0.018 &   +129.0 &      1.1   \\
-		8000 &    0.997 &    0.018 &    +95.9 &      1.1   \\
-		9000 &    0.996 &    0.018 &    +62.7 &      1.1  \\
-		%%-----------------------------------------------
-		
-		\end{array}
+        %%-----------------------------------------------
+        % Data here
+        45 &   0.9998 &   0.0023$^\dagger$ &    -1.46 &     0.13     \\
+        50 &   0.9998 &   0.0023$^\dagger$ &    -1.62 &     0.13     \\
+        100 &   0.9999 &   0.0023$^\dagger$ &    -3.27 &     0.13    \\
+        300 &   0.9998 &   0.0025 &    -9.80 &     0.14    \\
+        500 &   0.9997 &   0.0026 &   -16.34 &     0.15    \\
+        1000 &   1.0000 &   0.0032 &   -32.72 &     0.18   \\
+        2000 &   0.9994 &   0.0054 &   -65.67 &     0.31  \\
+        3000 &    1.000 &    0.011 &   -98.66 &     0.62   \\
+        4000 &    0.999 &    0.013 &  -131.74 &     0.78   \\
+        5000 &    0.999 &    0.016 &  -164.77 &     0.90   \\
+        6000 &    0.998 &    0.017 &  +162.15 &     0.99   \\
+        7000 &    0.997 &    0.018 &   +129.0 &      1.1   \\
+        8000 &    0.997 &    0.018 &    +95.9 &      1.1   \\
+        9000 &    0.996 &    0.018 &    +62.7 &      1.1  \\
+        %%-----------------------------------------------
+    
+    \end{array}
 	\]
-	\captionof{figure}{Magnitude and phase data}
-	\label{fig1}     % Must follow \captionof
+	\LMICaption{table}{tab1}{%
+Magnitude and phase data, using a linear scale for magnitude and units of degrees for phase. 
+Expanded uncertainties decorated by a $\dagger$ fall outside the scope of accreditation (see Uncertainty section).
+}
 	
 \end{singlespace}
 \end{center}
 
 
 \section{Uncertainty}
-A coverage factor $k=1.96$ was used to calculate the expanded uncertainties $U(\cdot)$ at a level of confidence of approximately 95\%. The number of degrees of freedom associated with each measurement result was large enough to justify this coverage factor.  
+A coverage factor $k=1.96$ was used to calculate the expanded uncertainties $U(\cdot)$ at a level of confidence of approximately \SI{95}{\percent}. 
+The number of degrees of freedom associated with each measurement result was large enough to justify this coverage factor.  
 
-Some of the expanded uncertainty values reported fall outside LNI's current scope of accreditation. These values are indicated by a $\dagger$. The least expanded uncertainty for a magnitude measurement close to unity in the LNI scope is currently 0.0024. 
+Some of the expanded uncertainty values reported fall outside LMI's current scope of accreditation. 
+These values are decorated by a $\dagger$ in Table~\ref{tab1}. 
+The least expanded uncertainty for a measured magnitude close to unity in the LMI scope of accreditation is currently 0.0024. 
 
-% A \paragraph is a lower heirarchy section. The 'heading' text will be in bold
-% and the 'body' text will follow on the same line.
-\paragraph{Note:} \referenceGUM	% Standard reference to the GUM
+\paragraph{Note:} \referenceGUM	
 
 \embedfile[mimetype=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet]{ex_data.xlsx}
+
 \end{document}
 {% endraw %}
 {% endhighlight %}
+
+### Page style definitions in the preamble 
 
 #### Conventional language and maths options
 A certain style of typesetting (here UK English) can be selected by importing for following packages
@@ -292,6 +296,22 @@ We also prefer to use standardised American Mathematical Society maths features,
 \usepackage{amsmath}
 \usepackage{siunitx}
 ``` 
+
+#### Figure and table captions
+LaTeX has 'floating' environments for figures and tables that automatically place these objects to balance the layout of a document. We do not wish to use these features. 
+
+We must define a special environment, called `\LMICaption`, to add captions, and refer to figures and tables from within the document body. 
+The syntax is `\LMICaption{<type>}{<label>}{<caption-body>}`, where `type` is either 'figure' or 'table'; `label` is our choice of label that refers to the object; and `caption-body` is the text to appear in the caption.
+```tex
+\RequirePackage{capt-of}
+\newcommand{\LMICaption}[3]{
+    \begin{minipage}{.8\textwidth}        
+        \captionof{#1}{\small #3}
+        \label{#2}     
+    \end{minipage}
+    \vspace{.5\baselineskip}
+}
+```
 
 #### Control over paragraphs and line spacing
 LaTeX indents the first line of new paragraphs by default. This can be avoided by importing the `parskip` package. Line spacing can be controlled by `setspace`:
@@ -420,6 +440,86 @@ We capture certain document details in our macros and use the `hyperref` package
     pdfauthor={\LMI},
     pdfnumpages={\pageref*{LastPage}}
 }
+```
+
+### Report body contents
+
+#### Header, footer, and left alignment of text 
+The first lines after `\begin{document` set the page style to 'fancy', in which a header and footer have been defined. 
+The `\raggedright` command tells LaTeX not to justify the lines of text, which gives a ragged appearance on the right hand side of the text.  
+The report title is printed, below 4 lines of vertical space, in LaTeX's `\LARGE` sized print. 
+```tex
+\begin{document}
+\pagestyle{fancy}
+\raggedright        % Does not adjust the right margin
+	
+\vspace*{4\baselineskip}
+\textbf{\LARGE\ReportTitle}    
+```
+
+#### Special content markup
+There are a few examples of content mark-up in the body of the report.
+* `\textsuperscript` places text in a superscript position 
+* The `\SI` command can be used to format units and numbers correctly
+* The command `\clearpage` forces a page break  
+* Inline mathematical content is enclosed in a pair of `$`
+* `\ref{<label>}` returns the number allocated to whatever object was labelled
+* Content can be centred horizontally on the page between `\begin{center}` and `\end{center}` 
+ 
+#### Tables
+The structure of tables in LaTeX is rather intricate. 
+There are many features available. 
+However, tables are usually designed according to specific needs.
+So, we have just included one table, as an example, in this report. 
+
+The body of the table is created by the `array` environment, which is specially intended for mathematical content. 
+The syntax of the environment opening statement is `\begin{array}{cols}`, where `cols` is a sequence of characters that define the alignment of content in the table columns.
+Our table is specified by placing the array inside a maths environment `\[ ... \]`. 
+There are five columns each of type `S`, which will align numbers on the decimal point
+```tex
+\[
+\begin{array}{SSSSS}
+```
+
+The `\multicolumn` command spans several adjacent columns. 
+The command syntax is `\multicolumn{n}{col}{text}`, where `n` is the number of columns that will be joined, `cols` is define the alignment of content in the column, and `text` is the content.
+The `&` character acts as a separator between columns.
+So two lines table headings, and a horizontal line at the bottom, are created by 
+```tex
+    \multicolumn{1}{c}{ \text{frequency} } & 
+    \multicolumn{2}{c}{ \text{magnitude} } &
+    \multicolumn{2}{c}{ \text{phase} } 
+    \\
+    % 2nd line 
+    \multicolumn{1}{c}{ (/\si{\mega\hertz}) } &  
+    \multicolumn{2}{c}{  } &
+    \multicolumn{2}{c}{ (/\si{\degree}) } 
+    \\
+    % 3rd line 
+    & {\rho} & {U(\rho)} & {\phi} & {U(\phi)} 
+    \\ \hline % Underline the headings
+```
+
+Numerical data are entered between `&` separators, and each row ends with the newline command `\\`.
+The table is completed by closing the array and maths environments.
+```tex
+    45 &   0.9998 &   0.0023$^\dagger$ &    -1.46 &     0.13     \\
+    50 &   0.9998 &   0.0023$^\dagger$ &    -1.62 &     0.13     \\
+    100 &   0.9999 &   0.0023$^\dagger$ &    -3.27 &     0.13    \\
+    300 &   0.9998 &   0.0025 &    -9.80 &     0.14    \\
+    500 &   0.9997 &   0.0026 &   -16.34 &     0.15    \\
+    1000 &   1.0000 &   0.0032 &   -32.72 &     0.18   \\
+    2000 &   0.9994 &   0.0054 &   -65.67 &     0.31  \\
+    3000 &    1.000 &    0.011 &   -98.66 &     0.62   \\
+    4000 &    0.999 &    0.013 &  -131.74 &     0.78   \\
+    5000 &    0.999 &    0.016 &  -164.77 &     0.90   \\
+    6000 &    0.998 &    0.017 &  +162.15 &     0.99   \\
+    7000 &    0.997 &    0.018 &   +129.0 &      1.1   \\
+    8000 &    0.997 &    0.018 &    +95.9 &      1.1   \\
+    9000 &    0.996 &    0.018 &    +62.7 &      1.1  \\
+
+\end{array}
+\]
 ```
 [^1]: LaTeX packages are available on the Comprehensive TeX Archive Network [CTAN](https://ctan.org/). Documentation for every package can be found there. 
 
