@@ -11,13 +11,13 @@ layout: page
 
 ## Preliminaries
 PDF/A-3 file formats can deliver human-readable metrological documents (i.e., PDF reader software can display the document) with digital files embedded. 
-So, PDF/A formats could be used by calibration laboratories to tailor reports to the needs of their customers. 
+So, PDF/A formats could be used by calibration laboratories to tailor reports to the needs of their customers.
 
 The suggestion to use PDF/A-3 formats for reporting metrological data was first made by [METAS](https://doi.org/10.1016/j.measen.2021.100282){:target="_blank"}. 
-A proof-of-concept package is available on [github](https://github.com/metas-ch/metas-ecertificate){:target="_blank"}, which uses open-source tools to create PDF/A files---the LaTeX system for typesetting documents. 
+They made a proof-of-concept package available on [github](https://github.com/metas-ch/metas-ecertificate){:target="_blank"}, which uses open-source tools to create PDF/A files---the LaTeX system for typesetting documents. 
 However, recent developments have improved LaTeX system support for generating PDF files.
 
-Since 2020, the group who maintains LaTeX embarked on a multi-year [development project](https://pdfa.org/presentation/tagged-and-accessible-pdf-with-latex/){:target="_blank"} to produce tagged and accessible PDF from existing LaTeX source files with no or only minimal configuration adjustments.  
+Since 2020, the group who maintains LaTeX embarked on a multi-year [development project](https://pdfa.org/presentation/tagged-and-accessible-pdf-with-latex/){:target="_blank"} to produce tagged and accessible PDF from existing LaTeX source files with no or only minimal configuration adjustments. 
 This project has simplified the generation of PDF/A-3 documents. 
 In the longer term, PDF files produced using LaTeX will contain rich semantic machine-readable content, which is an exciting long-term prospect for digital transformation in metrology.
  
@@ -235,10 +235,6 @@ The appearance is specified in a LaTeX style file called `LMIReport`; the mark-u
 \date{17 May 2035}
 
 \begin{document}	
-% Possible section headings: Description, Identification, Client
-% Reference, Date(s) of Calibration (of Test), Objective
-% Method, Conditions, Notes, Results, Uncertainty, Conclusion
-%
 \section{Description}
 The components are from a USC vector network analyser calibration kit model 8599. 
 
@@ -260,78 +256,67 @@ Measurements of the voltage reflection coefficient were made according to proced
 \clearpage    % Anticipate the page break
 \section{Results}
  
-
-% Although not used here, it is also possible to have a \subsubsection{}
 \subsection{Open (male), SN 54673}
 
- \begin{center} % Centered horizontally on the page
- 
- % If the report text is wider, it is too wide for tables 
- \begin{singlespace}
- 
- 	\small	% use a smaller font size for the table entries
- 
-  	% Increases the vertical spacing between rows slightly  
-  	\setlength{\extrarowheight}{3pt}
-  
-    \[
-        % the 'S' array column type will align numbers on the decimal 
-        % Note 'S[group-minimum-digits=3]' or '\sisetup{group-minimum-digits=3 }'
-        % would be used to force a space separator every 3 digits (this
-        % does not happen by default until there more than 4 digits)
-  		\begin{array}{SSSSS}
-    		\multicolumn{1}{c}{ \text{frequency} } & 
-    		\multicolumn{2}{c}{ \text{magnitude} } &
-    		\multicolumn{2}{c}{ \text{phase} } 
-    		\\
-		% 2nd line 
-    		\multicolumn{1}{c}{ (/\si{\mega\hertz}) } &  
-    		\multicolumn{2}{c}{  } &
-    		\multicolumn{2}{c}{ (/\si{\degree}) } 
-    		\\
-  		% 3rd line 
-     		& {\rho} & {U(\rho)} & {\phi} & {U(\phi)} 
-     		\\ \hline % Underline the headings
+\begin{center} 
+    \small	% smaller font size for the table entries
 
-  		%%-----------------------------------------------
-  		% Data here
-		45 &   0.9998 &   0.0023$^\dagger$ &    -1.46 &     0.13     \\
-		50 &   0.9998 &   0.0023$^\dagger$ &    -1.62 &     0.13     \\
-		100 &   0.9999 &   0.0023$^\dagger$ &    -3.27 &     0.13    \\
-		300 &   0.9998 &   0.0025 &    -9.80 &     0.14    \\
-		500 &   0.9997 &   0.0026 &   -16.34 &     0.15    \\
-		1000 &   1.0000 &   0.0032 &   -32.72 &     0.18   \\
-		2000 &   0.9994 &   0.0054 &   -65.67 &     0.31  \\
-		3000 &    1.000 &    0.011 &   -98.66 &     0.62   \\
-		4000 &    0.999 &    0.013 &  -131.74 &     0.78   \\
-		5000 &    0.999 &    0.016 &  -164.77 &     0.90   \\
-		6000 &    0.998 &    0.017 &  +162.15 &     0.99   \\
-		7000 &    0.997 &    0.018 &   +129.0 &      1.1   \\
-		8000 &    0.997 &    0.018 &    +95.9 &      1.1   \\
-		9000 &    0.996 &    0.018 &    +62.7 &      1.1  \\
-		%%-----------------------------------------------
+    % Increases the vertical spacing between rows slightly  
+    \setlength{\extrarowheight}{3pt}
+    %
+    % the 'S' array column type will align numbers on the decimal 
+    % Note 'S[group-minimum-digits=3]' or '\sisetup{group-minimum-digits=3 }'
+    % would be used to force a space separator every 3 digits (this
+    % does not happen by default until there more than 4 digits)
+    \begin{tabular}{SSSSS}
+    
+        \multicolumn{1}{c}{ frequency } & 
+        \multicolumn{2}{c}{ magnitude } &
+        \multicolumn{2}{c}{ phase } 
+        \\
+        % 2nd line 
+        \multicolumn{1}{c}{ (/\si{\mega\hertz}) } &  
+        \multicolumn{2}{c}{  } &
+        \multicolumn{2}{c}{ (/\si{\degree}) } 
+        \\
+        % 3rd line 
+        & $\rho$ & U($\rho$) & $\phi$ & U($\phi$) 
+        \\ \hline % Underline the headings
+
+        %%-----------------------------------------------
+        45 &   0.9998 &   0.0023$^\dagger$ &    -1.46 &     0.13     \\
+        50 &   0.9998 &   0.0023$^\dagger$ &    -1.62 &     0.13     \\
+        100 &   0.9999 &   0.0023$^\dagger$ &    -3.27 &     0.13    \\
+        300 &   0.9998 &   0.0025 &    -9.80 &     0.14    \\
+        500 &   0.9997 &   0.0026 &   -16.34 &     0.15    \\
+        1000 &   1.0000 &   0.0032 &   -32.72 &     0.18   \\
+        2000 &   0.9994 &   0.0054 &   -65.67 &     0.31  \\
+        3000 &    1.000 &    0.011 &   -98.66 &     0.62   \\
+        4000 &    0.999 &    0.013 &  -131.74 &     0.78   \\
+        5000 &    0.999 &    0.016 &  -164.77 &     0.90   \\
+        6000 &    0.998 &    0.017 &  +162.15 &     0.99   \\
+        7000 &    0.997 &    0.018 &   +129.0 &      1.1   \\
+        8000 &    0.997 &    0.018 &    +95.9 &      1.1   \\
+        9000 &    0.996 &    0.018 &    +62.7 &      1.1  \\
+        %%-----------------------------------------------
 		
-		\end{array}
-	\]
-	\LMICaption{figure}{fig1}{%
-Magnitude and phase data, using a linear scale for magnitude and units of degrees for phase. 
-Expanded uncertainties decorated by a $\dagger$ fall outside the scope of accreditation (see Uncertainty section).
-}
+    \end{tabular}
+        
+    \LMICaption{table}{tab1}{%
+    Magnitude and phase data, using a linear scale for magnitude and units of degrees for phase. 
+    Expanded uncertainties decorated by a $\dagger$ fall outside the scope of accreditation (see Uncertainty section).
+    }
 	
-\end{singlespace}
 \end{center}
-
 
 \section{Uncertainty}
 A coverage factor $k=1.96$ was used to calculate the expanded uncertainties $U(\cdot)$ at a level of confidence of approximately \SI{95}{\percent}. 
 The number of degrees of freedom associated with each measurement result was large enough to justify this coverage factor.  
 
 Some of the expanded uncertainty values reported fall outside LMI's current scope of accreditation. 
-These values are decorated by a $\dagger$ in Figure~\ref{fig1}. 
+These values are decorated by a $\dagger$ in Table~\ref{tab1}. 
 The least expanded uncertainty for a measured magnitude close to unity in the LMI scope of accreditation is currently 0.0024. 
 
-% A \paragraph is a lower hierarchy section. The 'heading' text is in bold
-% and the 'body' text follows on the same line.
 \paragraph{Note:} \referenceGUM	% Standard reference to the GUM
 
 \embedfile[mimetype=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet]{ex_data.xlsx}

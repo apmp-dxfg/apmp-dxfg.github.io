@@ -15,12 +15,13 @@ We explain how the appearance of material in the body of Lunar Metrology Institu
 
 ### LaTeX file for report body
 
-Here is a LaTeX file with commands that specify appearance and some content, which will be presented in the report.
-Appearance is specified in the preamble of a LaTeX file (before `\begin{document}`).
-The report content itself is between `\begin{document}` and `\end{document}`.
+Here is a LaTeX file with commands that specify appearance and some content in the report.
+Appearance can specified in the preamble of a LaTeX file (before `\begin{document}`) by importing packages and declaring commands. 
+Appearance is also influenced by the LaTeX 'class' file (`article`), which is imported by `\documentclass`. 
+The report content itself goes in between `\begin{document}` and `\end{document}`.
 A title page is not produced.
 Some of the configuration commands have already been discussed when considering the [title page](dxfg-pdfa-tut-title-style). 
-We explain the other details below.
+We explain other details below.
 
 {% highlight latex %}
 {% raw %}
@@ -215,17 +216,20 @@ Measurements of the voltage reflection coefficient were made according to proced
 \subsection{Open (male), SN 54673}
 
 \begin{center} 
-\begin{singlespace}
- 	\small	% smaller font size for the table entries
- 
-  	% Increases the vertical spacing between rows slightly  
-  	\setlength{\extrarowheight}{3pt}
-  
-	\[
-    \begin{array}{SSSSS}
-        \multicolumn{1}{c}{ \text{frequency} } & 
-        \multicolumn{2}{c}{ \text{magnitude} } &
-        \multicolumn{2}{c}{ \text{phase} } 
+    \small	% smaller font size for the table entries
+
+    % Increases the vertical spacing between rows slightly  
+    \setlength{\extrarowheight}{3pt}
+    %
+    % the 'S' array column type will align numbers on the decimal 
+    % Note 'S[group-minimum-digits=3]' or '\sisetup{group-minimum-digits=3 }'
+    % would be used to force a space separator every 3 digits (this
+    % does not happen by default until there more than 4 digits)
+    \begin{tabular}{SSSSS}
+    
+        \multicolumn{1}{c}{ frequency } & 
+        \multicolumn{2}{c}{ magnitude } &
+        \multicolumn{2}{c}{ phase } 
         \\
         % 2nd line 
         \multicolumn{1}{c}{ (/\si{\mega\hertz}) } &  
@@ -233,11 +237,10 @@ Measurements of the voltage reflection coefficient were made according to proced
         \multicolumn{2}{c}{ (/\si{\degree}) } 
         \\
         % 3rd line 
-        & {\rho} & {U(\rho)} & {\phi} & {U(\phi)} 
+        & $\rho$ & U($\rho$) & $\phi$ & U($\phi$) 
         \\ \hline % Underline the headings
 
         %%-----------------------------------------------
-        % Data here
         45 &   0.9998 &   0.0023$^\dagger$ &    -1.46 &     0.13     \\
         50 &   0.9998 &   0.0023$^\dagger$ &    -1.62 &     0.13     \\
         100 &   0.9999 &   0.0023$^\dagger$ &    -3.27 &     0.13    \\
@@ -253,15 +256,14 @@ Measurements of the voltage reflection coefficient were made according to proced
         8000 &    0.997 &    0.018 &    +95.9 &      1.1   \\
         9000 &    0.996 &    0.018 &    +62.7 &      1.1  \\
         %%-----------------------------------------------
-    
-    \end{array}
-	\]
-	\LMICaption{table}{tab1}{%
-Magnitude and phase data, using a linear scale for magnitude and units of degrees for phase. 
-Expanded uncertainties decorated by a $\dagger$ fall outside the scope of accreditation (see Uncertainty section).
-}
+		
+    \end{tabular}
+        
+    \LMICaption{table}{tab1}{%
+    Magnitude and phase data, using a linear scale for magnitude and units of degrees for phase. 
+    Expanded uncertainties decorated by a $\dagger$ fall outside the scope of accreditation (see Uncertainty section).
+    }
 	
-\end{singlespace}
 \end{center}
 
 
@@ -472,23 +474,21 @@ There are many features available.
 However, tables are usually designed according to specific needs.
 So, we have just included one table, as an example, in this report. 
 
-The body of the table is created by the `array` environment, which is specially intended for mathematical content. 
-The syntax of the environment opening statement is `\begin{array}{cols}`, where `cols` is a sequence of characters that define the alignment of content in the table columns.
-Our table is specified by placing the array inside a maths environment `\[ ... \]`. 
-There are five columns each of type `S`, which will align numbers on the decimal point
+The body of the table is created by the `tabular` environment. 
+The syntax of the environment opening statement is `\begin{tabular}{cols}`, where `cols` is a sequence of characters that define the alignment of content in the table columns.
+tabularThere are five columns each of type `S`, which will align numbers on the decimal point
 ```tex
-\[
-\begin{array}{SSSSS}
+\begin{tabular}{SSSSS}
 ```
 
-The `\multicolumn` command spans several adjacent columns. 
+The `\multicolumn` command allows content to span several adjacent columns. 
 The command syntax is `\multicolumn{n}{col}{text}`, where `n` is the number of columns that will be joined, `cols` is define the alignment of content in the column, and `text` is the content.
 The `&` character acts as a separator between columns.
 So two lines table headings, and a horizontal line at the bottom, are created by 
 ```tex
-    \multicolumn{1}{c}{ \text{frequency} } & 
-    \multicolumn{2}{c}{ \text{magnitude} } &
-    \multicolumn{2}{c}{ \text{phase} } 
+    \multicolumn{1}{c}{ frequency } & 
+    \multicolumn{2}{c}{ magnitude } &
+    \multicolumn{2}{c}{ phase } 
     \\
     % 2nd line 
     \multicolumn{1}{c}{ (/\si{\mega\hertz}) } &  
@@ -496,11 +496,11 @@ So two lines table headings, and a horizontal line at the bottom, are created by
     \multicolumn{2}{c}{ (/\si{\degree}) } 
     \\
     % 3rd line 
-    & {\rho} & {U(\rho)} & {\phi} & {U(\phi)} 
+    $\rho$ & U($\rho$) & $\phi$ & U($\phi$) 
     \\ \hline % Underline the headings
 ```
 
-Numerical data are entered between `&` separators, and each row ends with the newline command `\\`.
+Numerical data are entered between `&` separators, mathematical symbols are enclosed in a pair of `$`, and each row ends with the newline command `\\`.
 The table is completed by closing the array and maths environments.
 ```tex
     45 &   0.9998 &   0.0023$^\dagger$ &    -1.46 &     0.13     \\
