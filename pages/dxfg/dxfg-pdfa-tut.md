@@ -11,7 +11,7 @@ layout: page
 
 ## Preliminaries
 PDF/A-3 file formats can deliver human-readable metrological documents (i.e., PDF reader software can display the document) with digital files embedded. 
-So, PDF/A formats could be used by calibration laboratories to tailor reports to the needs of their customers.
+So, calibration laboratories could tailor reports to the needs of their customers using PDF/A documents.
 
 The suggestion to use PDF/A-3 formats for reporting metrological data was first made by [METAS](https://doi.org/10.1016/j.measen.2021.100282){:target="_blank"}. 
 They made a proof-of-concept package available on [github](https://github.com/metas-ch/metas-ecertificate){:target="_blank"}, which uses open-source tools to create PDF/A files---the LaTeX system for typesetting documents. 
@@ -392,7 +392,7 @@ The report will be produced with a copy of the data embedded as an XLSX file in 
 {% endraw %}
 {% endhighlight %}
 
-### LaTeX Style Development
+### LaTeX style development
 To explain how the `LMIReport` style has been developed, we consider the title page and the report body separately.
 We will show the development using source files in which LaTeX packages are included and commands are defined. 
 This approach is convenient when developing or modifying a style, because changes can be made in the file being processed. 
