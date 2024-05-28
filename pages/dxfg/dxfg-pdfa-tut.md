@@ -36,6 +36,37 @@ We use the Python package [pypdf](https://pypi.org/project/pypdf/){:target="_bla
 
 ## Examples
 
+### Prerequisites
+This section describes how to set up your computer (Windows only) to have the necessary tools installed to be able to run the examples. [Python](https://www.python.org/), [Git](https://git-scm.com/) and [MiKTeX](https://miktex.org/) are required and the [github repository](https://github.com/apmp-dxfg/pdfa3-documents) will be cloned. If you already have Python, Git or MiKTeX (i.e., a TeX distribution that includes the `pdflatex` command) installed, then skip that installation step.
+
+The following instructions assume that you have `WinGet` installed (the [Windows Package Manager](https://learn.microsoft.com/en-us/windows/package-manager/)). This is typically true for modern versions of Windows, as it is included with Windows 11 and Windows 10 May 2020 Update (version 2004) and later. If you do not have `WinGet` installed, you need to configure the prerequisites another way (or [install WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget)).
+
+Open a terminal (i.e., PowerShell or Command Prompt) then install Python (version 3.12 is shown, but you may install another version)
+```console
+> winget install --exact --id Python.Python.3.12
+```
+install Git
+```console
+> winget install --exact --id Git.Git
+```
+and install MiKTeX
+```console
+> winget install --exact --id MiKTeX.MiKTeX
+```
+You should now close your terminal and open a new terminal to allow the executable for these installed programs to be accessible.
+
+Install the `pypdf` and `pikepdf` packages in a Python [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments)
+```console
+> py -m venv .venv
+> .venv\Scripts\activate
+> pip install pypdf pikepdf
+```
+Finally, clone the repository and change directory, `cd`, into the `minimal` folder
+```console
+> git clone https://github.com/apmp-dxfg/pdfa3-documents.git
+> cd pdfa3-documents/minimal
+```
+
 ### Embedding a text file
 
 Here is an example that produces a PDF/A-3 file with an embedded text file (files shown are available in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/minimal){:target="_blank"}). 
