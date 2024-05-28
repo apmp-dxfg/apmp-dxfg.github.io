@@ -55,11 +55,11 @@ and install MiKTeX
 ```
 You should now close your terminal and open a new terminal to allow the executable for these installed programs to be accessible.
 
-Install the `pypdf` and `pikepdf` packages in a Python [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments)
+Install the `pypdf`, `pikepdf` and `openpyxl` packages in a Python [virtual environment](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments)
 ```console
 > py -m venv .venv
 > .venv\Scripts\activate
-> pip install pypdf pikepdf
+> pip install pypdf pikepdf openpyxl
 ```
 Finally, clone the repository and change directory, `cd`, into the `minimal` folder
 ```console
