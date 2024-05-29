@@ -166,6 +166,7 @@ for file_name, content_list in attached.items():
 ### XMP metadata
 Adobe allows XML metadata to be included in a PDF file. 
 This is known as [XMP metadata](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform){:target="_blank"}.  
+The LaTeX file for this example is `ex_xmp.tex`, in the `minimal-xmp` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/minimal-xmp){:target="_blank"}). 
 
 Here is an example where the title and author are recorded as metadata (a complete list of supported metadata is given in the [hyperref](http://mirrors.ctan.org/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf){:target="_blank"}) package documentation. 
 ```tex
@@ -211,15 +212,16 @@ with Pdf.open('ex_xmp.pdf') as pdf:
 
 ## Calibration Reports in LaTeX
 The LaTeX approach to creating documents separates layout from content: in other words, the style and typesetting of a document are defined separately. 
-This section presents an example of how to build up a LaTeX style specification for calibration reports. 
+This section presents an example of a LaTeX style specification for calibration reports. 
 
-It will help to take a look at the end result, so we have an idea of what we are working towards. 
+It will help to begin by looking at a complete report, so we have an idea of what we are working towards. 
 A PDF/A file created using our style is available [here](supplied\ex_report.pdf){:target="_blank"}. 
-The PDF file also has an `XLSX` spreadsheet embedded.
+This file also has an `XLSX` spreadsheet embedded.
  
-The LaTeX source file for the calibration report follows below. 
-This file contains 'mark-up' commands, text, and other content. 
-The appearance is specified in a LaTeX style file called `LMIReport`; the mark-up relates to the structure of the document. 
+The LaTeX source file for this calibration report is shown below (from the `LMI-report-cls` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/LMI-report-cls){:target="_blank"}).
+It contains 'mark-up' commands, text, and other content. 
+The appearance is specified in a LaTeX file called `LMIReport.cls`; the mark-up relates to the structure of the document.
+
 {% highlight tex %}
 {% raw %}
 \DocumentMetadata{
@@ -393,13 +395,31 @@ The report will be produced with a copy of the data embedded as an XLSX file in 
 {% endhighlight %}
 
 ### LaTeX style development
-To explain how the `LMIReport` style has been developed, we consider the title page and the report body separately.
-We will show the development using source files in which LaTeX packages are included and commands are defined. 
-This approach is convenient when developing or modifying a style, because changes can be made in the file being processed. 
-Once we are satisfied with the style, it can be converted into a LaTeX class for general use.
+To explain how the `LMIReport` style works and how it was developed, we consider the title page and the report body separately.
 
+We use source files, in which LaTeX packages are included and commands are defined, while refining the style commands. 
+This is convenient when developing or modifying a style, because changes are made easily in the source file being processed. 
+Once we are satisfied, the commands can be transferred to a LaTeX class for general use.
+
+#### Title style
+The title page often has background artwork (logos) produced by graphics professionals. 
+Our title page combines a background page with LaTeX-generated text.
 * [Title style](dxfg-pdfa-tut-title-style)
+
+#### Body style
+Pages in the body of a report have a particular style. 
+Typically, there are page headers and footers, which display information about the report.
+Page margins are set and the style of section headings is defined.
+Our body style specifies these sorts of things.
+It also imports various standard packages that support scientific language and mathematics. 
 * [Body style](dxfg-pdfa-tut-body-style)
-* [`LMIReport.cls` LaTeX class](dxfg-pdfa-tut-report-style)
+
+#### LaTeX class file 
+The specifications for title page and report body can be placed in a LaTeX class file. 
+Doing so, allows the style to be placed apart from the report source files in a LaTeX system and reused many times.
+This effectively separates the content of reports from the way that they are rendered.
+
+Conversion of LaTeX commands in source files to commands for inclusion in a LaTeX class file is straightforward.
+* [`LMIReport.cls`](dxfg-pdfa-tut-report-style)
 
 {% include links.html %}
