@@ -25,6 +25,8 @@ In these pages, the DXFG is making information and examples available to help DX
 A [github repository](https://github.com/apmp-dxfg/pdfa3-documents){:target="_blank"} of associated files provides copies of the files referred to here. 
 
 ## Resources
+This resource uses the open-source software tools Python and LaTeX. 
+Some information about installing Python and LaTeX is given [here](dxfg-sw-info){:target="_blank"}.
 
 A [LaTeX](latex-res.html) page has information about LaTeX software for producing PDF/A-3 documents.
 

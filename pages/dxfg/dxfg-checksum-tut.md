@@ -12,7 +12,7 @@ Checksums are used to detect changes in digital records, perhaps caused during t
 
 Here we describe a checksum method of verifying digital documents issued by a calibration laboratory. The method allows automatic verification without exposing information contained in a document. It also allows the issuing laboratory to cancel documents at any time (e.g., when a correction to the original document is required). The method would be provided as a service on the internet, which is queried using a checksum to identify a document. 
 
-A simple proof-of-concept in Python is given [below](#example-running-on-localhost).
+A simple proof-of-concept in Python is given [below](#example-running-on-localhost). Information about installing Python is available [here](dxfg-sw-info){:target="_blank"}.
 
 ## Benefits of checksums
 Checksums can give confidence in the integrity of documents formally issued by a laboratory. 
