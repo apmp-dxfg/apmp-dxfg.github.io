@@ -7,18 +7,17 @@ toc: true
 mathjax: true
 layout: page
 ---
-{% include important.html content="This page is currently being written and has not yet been reviewed" %}
 This page provides information about open-source software referred to elsewhere on this website. 
 The information offers some guidance about installing the software.
 However, all of these tools have extensive user communities, who provide a wealth of supporting information.
 We urge readers to search for more information online. 
 
-The information below assumes that Windows 11, or Windows 10 with May 2020 Update (version 2004) or later, is running. 
+The information below assumes that your operating system is Windows 11, or Windows 10 with May 2020 Update (version 2004) or later. 
 
 
 ## Installing open-source software tools  
 We use `WinGet`, the [Windows Package Manager](https://learn.microsoft.com/en-us/windows/package-manager/).
-If `WinGet` is not installed, refer to [install WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget), or install the open-source software in other way.
+If `WinGet` is not installed, refer to [install WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget), or install the open-source software in another way.
 
 The examples below show commands typed into an open terminal (i.e., PowerShell or Command Prompt).
 When finished, this terminal should be closed. 

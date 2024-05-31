@@ -7,7 +7,6 @@ toc: true
 mathjax: true
 layout: page
 ---
-{% include important.html content="This page is currently being written and has not yet been reviewed" %}
 
 ## Preliminaries
 PDF/A-3 file formats can deliver human-readable metrological documents (i.e., PDF reader software can display the document) with digital files embedded. 
@@ -105,7 +104,7 @@ for file_name, content_list in attached.items():
 
 ### Embedding a spreadsheet
 This example produces a PDF/A file with an embedded spreadsheet. 
-The LaTeX file for this example is `ex_xlsx.tex`, in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/minimal){:target="_blank"}). 
+The LaTeX file for this example is `ex_xlsx.tex` (in the `minimal` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/minimal){:target="_blank"}). 
 
 Here is the LaTeX source code:
 ```tex
@@ -168,9 +167,10 @@ for file_name, content_list in attached.items():
 ### XMP metadata
 Adobe allows XML metadata to be included in a PDF file. 
 This is known as [XMP metadata](https://en.wikipedia.org/wiki/Extensible_Metadata_Platform){:target="_blank"}.  
-The LaTeX file for this example is `ex_xmp.tex`, in the `minimal-xmp` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/minimal-xmp){:target="_blank"}). 
 
 Here is an example where the title and author are recorded as metadata (a complete list of supported metadata is given in the [hyperref](http://mirrors.ctan.org/macros/latex/contrib/hyperref/doc/hyperref-doc.pdf){:target="_blank"}) package documentation. 
+The LaTeX file for this example is `ex_xmp.tex` (in the `minimal-xmp` folder of the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/minimal-xmp){:target="_blank"}). 
+
 ```tex
 \DocumentMetadata{
     pdfversion=1.7,
