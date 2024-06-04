@@ -281,7 +281,7 @@ The key people involved in issuing the report are displayed by
 ```
 
 #### Loading the background
-Finally, the background artwork is loaded the page is finalised (a new page is started by `\clearpage`)
+Finally, the background artwork is loaded and the page is finalised (a new page is started by `\clearpage`)
 ```tex {% raw %}
     \vfill
     
