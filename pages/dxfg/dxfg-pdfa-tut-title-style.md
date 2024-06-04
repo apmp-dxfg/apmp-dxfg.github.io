@@ -7,7 +7,6 @@ toc: true
 mathjax: true
 layout: page
 ---
-{% include important.html content="This page is currently being written and has not yet been reviewed" %}
 
 ## Title Page Style
 
@@ -67,7 +66,7 @@ The preamble of our file is where the appearance of the title page is configured
 \newcommand{\ChiefMetrologist}[1]{\renewcommand{\ChiefMetrologist}{#1}}
 \makeatother
 
-%% This command composes shows who has been involved in the report. 
+%% This command displays those involved in issuing the report. 
 \newcommand{\MetrologyTeam}{
            \Metrologist \\
     \textbf{Authorised by:} \> \ChiefMetrologist
@@ -77,7 +76,7 @@ The preamble of our file is where the appearance of the title page is configured
 \usepackage{parskip}         
 
 %% This package finds the number of pages in a document.
-%% The complier must be run twice to find the LastPage number.
+%% The compilier must be run twice to find the LastPage number.
 \usepackage{lastpage}       
 \newcommand{\thispageof}{Page~\thepage~of~\pageref*{LastPage}}
 
