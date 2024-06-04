@@ -20,13 +20,16 @@ Details about the report itself (title, date, etc.) are printed on the first pag
 
 For this example, we created artwork for a title page using [LibreOffice Writer](https://www.libreoffice.org/){:target="_blank"}. 
 Our background [artwork](supplied/LMI_cover.pdf){:target="_blank"} was exported from LibreWriter in PDF/A format.  
+The source file is available on [github](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/artwork){:target="_blank"}.
 
 ### Page Style
-Here is a complete LaTeX file that places details about a calibration report over background artwork is shown below. 
-We explain the different parts of this code underneath.
+A complete LaTeX file that places details about a calibration report over background artwork is shown below. 
+The source file and PDF artwork are available on [github](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/LMI-title-dev){:target="_blank"}.
+
+We explain the different parts of this code below.
 
 Note, `\maketitlepage` is the only command in the body of this LaTeX document. 
-Everything hat comes before `\begin{document}` in a LaTeX file is called the 'preamble'. This is where commands and macros are defined, and public LaTeX packages are imported that provide particular functions and features. 
+Everything that comes before `\begin{document}` in a LaTeX file is called the 'preamble'. This is where commands and macros are defined, and public LaTeX packages are imported that provide particular functions and features. 
 The preamble of our file is where the appearance of the title page is configured.
 
 {% highlight latex %}
@@ -64,6 +67,12 @@ The preamble of our file is where the appearance of the title page is configured
 \newcommand{\ChiefMetrologist}[1]{\renewcommand{\ChiefMetrologist}{#1}}
 \makeatother
 
+%% This command composes shows who has been involved in the report. 
+\newcommand{\MetrologyTeam}{
+           \Metrologist \\
+    \textbf{Authorised by:} \> \ChiefMetrologist
+}
+
 %% Paragraph formatting
 \usepackage{parskip}         
 
@@ -71,12 +80,6 @@ The preamble of our file is where the appearance of the title page is configured
 %% The complier must be run twice to find the LastPage number.
 \usepackage{lastpage}       
 \newcommand{\thispageof}{Page~\thepage~of~\pageref*{LastPage}}
-
-%% This command composes shows who has been involved in the report. 
-\newcommand{\MetrologyTeam}{
-           \Metrologist \\
-    \textbf{Authorised by:} \> \ChiefMetrologist
-}
 
 %% A command to produce the title page
 \newcommand{\maketitlepage}{%
@@ -189,6 +192,13 @@ For example, the `\MetrologyTeam` command uses the values in `\Metrologist` and 
 }
 ```
 
+#### Page numbering
+The command `\thispageof` produces text showing the page number and the total number of pages. 
+```tex
+\usepackage{lastpage}       
+\newcommand{\thispageof}{Page~\thepage~of~\pageref*{LastPage}}
+``` 
+
 ### Assembling the title page
 The `\maketitlepage` command assembles the different elements of the title page. 
 {% highlight tex %}
@@ -233,22 +243,22 @@ The `\maketitlepage` command assembles the different elements of the title page.
 {% endraw %}
 {% endhighlight %}
 
-#### Header, footer and page numbers
-`\thispagestyle{empty}` sets up a blank page with no automatic header, footer, or page numbering.
-
-The command `\thispageof` generates text showing the page number and the total number of pages. 
-This will appear in the top left of the title page.
-```tex
-\usepackage{lastpage}       
-\newcommand{\thispageof}{Page~\thepage~of~\pageref*{LastPage}}
-``` 
-
 #### Title
+A blank page style, with no header, footer, or automatic page numbering, is set by
+```tex
+\thispagestyle{empty}
+
+% Page 1 of N is written at the top left
+\thispageof    
+```
+The command `\thispageof` places the page information in the top left of the page.
+
 The report title is placed on the page by
 ```tex
 \vspace*{50mm}
 \textbf{\huge \ReportTitle}\\
 ```
+
 A vertical space of 5 cm is introduced and then `\ReportTitle` is set in the `\huge` font size (about 19 pt).
 
 #### Report number and date
