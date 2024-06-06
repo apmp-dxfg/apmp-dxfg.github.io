@@ -7,8 +7,6 @@ toc: true
 mathjax: true
 layout: page
 ---
-{% include important.html content="This page is currently being written and has not yet been reviewed" %}
-
 ## Lunar Metrology Institute Style
 
 Our objective in these pages has been to develop a LaTeX class that specifies the appearance of calibration reports for the Lunar Metrology Institute.
