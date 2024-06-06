@@ -17,7 +17,7 @@ Now we explain how to combine those title and body styles in one LaTeX class fil
 
 ### LaTeX class file for LMI reports
 
-The LaTeX class file for LMI reports is shown below (files are also available from the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/LMIReport-report-cls){:target="_blank"}). 
+The LaTeX class file for LMI reports is shown below (files are also available from the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/LMI-report-cls){:target="_blank"}). 
 Most of the content in this file is taken directly from the LaTeX files we developed for the report title and body. 
 The one notable difference is that `\usepackage` is replaced everywhere by `\RequirePackage`. 
 
@@ -57,7 +57,7 @@ Other differences between this class file and the LaTeX sources used earlier are
 \RequirePackage{amsmath}
 \RequirePackage{siunitx}
 
-%% Make captions without using LaFeX floating figure or table environments 
+%% Make captions without using LaTeX floating figure or table environments 
 \RequirePackage{capt-of}
 \newcommand{\LMICaption}[3]{
     \begin{minipage}{.8\textwidth}        
@@ -68,7 +68,7 @@ Other differences between this class file and the LaTeX sources used earlier are
 }
 
 %% This package finds the number of pages in a document.
-%% The complier must be run twice to find the LastPage number.
+%% The compiler must be run twice to find the LastPage number.
 \RequirePackage{lastpage}       % To allow page 'n' of 'm'
 \newcommand{\thispageof}{Page~\thepage~of~\pageref*{LastPage}}
 
@@ -149,7 +149,7 @@ A PDF version is available on-line:
 %% A command to produce the title page
 \newcommand{\maketitlepage}{%
 
-    % Supress header and footer 
+    % Suppress header and footer 
     \thispagestyle{empty}    
 
     % Page 1 of N is written at the top left
@@ -234,7 +234,6 @@ A PDF version is available on-line:
     \hypersetup{
         pdftitle={\ReportTitle},
         pdfauthor={\LMI},
-        pdfnumpages={\pageref*{LastPage}},
         pdfpagemode={UseAttachments}    % Prompts PDF reader
     }
 }
@@ -272,14 +271,13 @@ These commands are called at specific stages when processing a document.
 This macro can process any material defined in the preamble.
 We use it to assign values to XMP metadata relating to the report.
 ```tex
-`\RequirePackage{etoolbox}           % Provides \AtEndPreamble
+\RequirePackage{etoolbox}           % Provides \AtEndPreamble
 \AtEndPreamble{
     % Executes after the document preamble has been processed,
     % so definitions made in the document can be accessed here.
     \hypersetup{
         pdftitle={\ReportTitle},
         pdfauthor={\LMI},
-        pdfnumpages={\pageref*{LastPage}}
         pdfpagemode={UseAttachments}    % Prompts PDF reader
     }
 }

@@ -77,7 +77,7 @@ We explain other details below.
 \makeatother
 
 %% This package finds the number of pages in a document.
-%% The compilier must be run twice to find the LastPage number.
+%% The compiler must be run twice to find the LastPage number.
 \usepackage{lastpage}       
 \newcommand{\thispageof}{Page~\thepage~of~\pageref*{LastPage}}
 

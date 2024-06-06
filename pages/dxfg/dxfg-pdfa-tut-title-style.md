@@ -76,7 +76,7 @@ The preamble of our file is where the appearance of the title page is configured
 \usepackage{parskip}         
 
 %% This package finds the number of pages in a document.
-%% The compilier must be run twice to find the LastPage number.
+%% The compiler must be run twice to find the LastPage number.
 \usepackage{lastpage}       
 \newcommand{\thispageof}{Page~\thepage~of~\pageref*{LastPage}}
 
