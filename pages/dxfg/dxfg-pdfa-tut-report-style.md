@@ -17,7 +17,7 @@ Now we explain how to combine those title and body styles in one LaTeX class fil
 
 ### LaTeX class file for LMI reports
 
-The LaTeX class file for LMI reports is shown below (files are also available from the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/LMI-report-cls){:target="_blank"}). 
+The LaTeX class file for LMI reports is shown below (files are also available from the [github respository](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/LMI-report-cls){:target="_blank"}). 
 Most of the content in this file is taken directly from the LaTeX files we developed for the report title and body. 
 The one notable difference is that `\usepackage` is replaced everywhere by `\RequirePackage`. 
 
