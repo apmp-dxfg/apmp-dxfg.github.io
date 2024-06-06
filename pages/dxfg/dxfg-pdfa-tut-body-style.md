@@ -17,12 +17,12 @@ Here is a LaTeX file with commands that specify appearance and some content in t
 The source file is available on [github](https://github.com/apmp-dxfg/pdfa3-documents/tree/main/LMI-body-dev){:target="_blank"}.
 
 
-The appearance can specified in the preamble of a LaTeX file (before `\begin{document}`) by importing packages and declaring commands. 
+The appearance can be specified in the preamble of a LaTeX file (before `\begin{document}`) by importing packages and declaring commands. 
 Appearance is also influenced by the LaTeX 'class' file (`article`), which is imported by `\documentclass`. 
 The report content itself goes in between `\begin{document}` and `\end{document}`.
 
 A title page is not produced.
-Some of the configuration commands were already been discussed in relation to the layout of the [title page](dxfg-pdfa-tut-title-style). 
+Some of the configuration commands were already discussed in relation to the layout of the [title page](dxfg-pdfa-tut-title-style). 
 We explain other details below.
 
 {% highlight latex %}
@@ -285,7 +285,7 @@ The least expanded uncertainty for a measured magnitude close to unity in the LM
 ### Page style definitions in the preamble 
 
 #### Conventional language and maths options
-A certain style of typesetting (here UK English) can be selected by importing for following packages
+A certain style of typesetting (here UK English) can be selected by importing the following packages
 ```tex
 \usepackage[UKenglish]{babel} % British English conventions
 \usepackage[UKenglish,cleanlook]{isodate}   % Date format: day month year
