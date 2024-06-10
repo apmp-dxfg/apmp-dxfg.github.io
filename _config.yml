@@ -50,7 +50,7 @@ feedback_disable: true
 # if you uncomment the previous line, it changes where the feedback link points to
 
 # Allow posts with a future date
-# future: true
+future: true
 
 highlighter: rouge
 # library used for syntax highlighting
