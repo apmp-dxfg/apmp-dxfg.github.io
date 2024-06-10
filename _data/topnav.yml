@@ -14,11 +14,11 @@ topnav_dropdowns:
   folders:
     - title: Resources
       folderitems:
-      - title: Software tools
+      - title: Open-source software tools 
         url: /dxfg-sw-info
-      - title: PDF/A-3
+      - title: PDF/A-3 from LaTeX
         url: /dxfg-pdfa-tut
-      - title: Document verification
+      - title: Checksum document verification
         url: /dxfg-checksum-tut
     - title: External Links
       folderitems:

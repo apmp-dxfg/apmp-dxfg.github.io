@@ -1,5 +1,5 @@
 ---
-title: PDF/A-3 Documents from LaTeX
+title: PDF/A-3 documents from LaTeX
 last_updated: May 18, 2024
 summary: "Information about generating PDF/A-3 documents using LaTeX"
 permalink: dxfg-pdfa-tut.html
@@ -26,8 +26,6 @@ A [github repository](https://github.com/apmp-dxfg/pdfa3-documents){:target="_bl
 ## Resources
 This resource uses the open-source software tools Python and LaTeX. 
 Some information about installing Python and LaTeX is given [here](dxfg-sw-info){:target="_blank"}.
-
-A [LaTeX](latex-res.html) page has information about LaTeX software for producing PDF/A-3 documents.
 
 Independent software is needed to validate PDF/A-3 documents against the official PDF [ISO standard](https://pdfa.org/resource/iso-19005-pdfa/){:target="_blank"}. 
 We use the [veraPDF](https://verapdf.org/home/){:target="_blank"} *Implementation Checker* tool to validate documents.

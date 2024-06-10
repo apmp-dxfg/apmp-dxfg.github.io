@@ -8,11 +8,23 @@ mathjax: true
 layout: page
 ---
 This page provides information about open-source software referred to elsewhere on this website. 
-The information offers some guidance about installing the software.
+
+We offer some guidance about installing the software.
 However, all of these tools have extensive user communities, who provide a wealth of supporting information.
 We urge readers to search for more information online. 
 
 The information below assumes that your operating system is Windows 11, or Windows 10 with May 2020 Update (version 2004) or later. 
+
+## LaTeX
+
+[LaTeX](https://www.latex-project.org/) is a free high-quality typesetting system; it includes features designed for the production of technical and scientific documentation. LaTeX is the de facto standard for production and publication of scientific documents. 
+
+LaTeX runs on top of a typesetting system called TeX. [TeX distributions](https://www.latex-project.org/get/#tex-distributions) usually bundle the various parts needed for a working TeX system and include both configuration and maintenance utilities. 
+
+To use the features of LaTeX developed for tagged data (in PDF files), it is important to keep your LaTeX distribution up to date.
+
+People often use an special editor tool to work with LaTeX. However, we will give command line instructions for processing where necessary. These commands should work correctly with all LaTeX distributions. The examples presented in these resources pages were developed using [MiTeX](https://miktex.org/) for Windows.  
+
 
 
 ## Installing open-source software tools  
