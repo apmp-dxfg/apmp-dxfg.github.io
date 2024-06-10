@@ -1,7 +1,7 @@
 ---
 title:  "Resources on DXFG website: 11 June 2024"
 categories: update
-permalink: dxfg-res-announcement-2024.html
+permalink: dxfg-new-resources.html
 tags: [news]
 ---
 A drop-down `Resources` menu is now part of the navigation bar on the DXFG website.  This menu gives access to resources describing several digitalisation initiatives.
