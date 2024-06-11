@@ -51,7 +51,7 @@ feedback_disable: true
 
 # Allow posts with a future date
 # future: true
-# timezone: NZ
+timezone: NZ
 
 highlighter: rouge
 # library used for syntax highlighting
