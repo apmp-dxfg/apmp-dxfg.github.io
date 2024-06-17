@@ -8,7 +8,7 @@ A drop-down `Resources` menu is now part of the navigation bar on the DXFG websi
 
 It should be noted that these initiatives are under development by DXFG members. They are shared here for the benefit of others who may be interested. 
 
-***The provision of these resources does not does not constitute endorsement by the DXFG***  
+***Provision of these resources does not constitute an endorsement by the DXFG***  
 
 ### Checksum document verification
 Digital documents are carefully checked before being issued by a national metrology institute.
