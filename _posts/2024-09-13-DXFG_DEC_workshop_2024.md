@@ -1,11 +1,9 @@
 ---
-title: NMIs strategically moving toward digital transformation
-last_updated: September 13, 2024
+title:  "APMP-DEC Workshop: 'NMIs strategically moving toward digital transformation', August 12, 2024"
+categories: update
 permalink: dxfg_DECWS_2024.html
-folder: dxfg
+tags: [news]
 ---
-## APMP-DEC Online Workshop, August 12, 2024
-
 Metrology plays a vital role in the nation's socio-economic growth.  Since the redefinition of SI units in 2019 and the evolution of Industry 4.0, the metrology community has started defining how metrology will evolve in the near future. Digitalization in metrology can be viewed as an amalgamation of conventional metrology with digital technologies, which consolidates physical measurements and analytics from a remote approach. Significant upgrades, potential innovations, and new metrological services required by digital orientations can be encapsulated under "Digitalization in Metrology". Digital transformation of industrial infrastructure in the form of smart factories has been elemental in quality enhancement. In metrology, digital transformation has evolved as an essential philosophy to cater to the ever-growing industrial needs, product standardization, quality control, conformity assessment, and innovations. In connection with metrology, digitalization also implies the integration of big data, the Internet of Things, and AI for reliable measurements. The major ingredients of digitalization in metrology are data digitalization, remote calibration, digital calibration certificates, data interoperability, automation, and real-time quality control. Metrology and digital transformation are linked to each other and can be used for efficiency enhancement and quality assurance in NMIs. Often, digital transformation dwindles because organizations focus solely on technology and do not pay as much attention to people and processes.
 
 The Asia Pacific Metrology Program Developing Economies’ Committee (DEC) is responsible for initiating and coordinating relevant work programs to address the metrology-related needs of APMP member Developing Economy NMIs (DENs), by working together with other APMP committees as appropriate. Future Proofing Task Force is one of the APMP DEC subcommittees, that supports DENs to adapt, accept and engage in new technologies to 
@@ -58,3 +56,5 @@ creating awareness for implementing digitalization in metrology in their NMI.
 </tbody>
 </table>
 The workshop was chaired by Dr. Girija Moona, NPL India.
+
+{% include links.html %}
